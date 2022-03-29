@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Roberta Chioccia</title>
+    <link href="css/master.css"  rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.typekit.net/fie2hjm.css">
+  </head>
+
+<body>
+  <!--background img start-->
+  <div id="slideshow">
+  <!--start logo -->
+  <section>
+    <div id="mySidepanel" class="sidepanel">
+     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+     <a href="#">home</a>
+     <a href="#">Services</a>
+     <a href="#">Clients</a>
+     <a href="#">Contact</a>
+</div>
+
+<button class="openbtn" onclick="openNav()">☰ Toggle Sidepanel</button>
+<h2>Collapsed Sidepanel</h2>
+<p>Click on the hamburger menu/bar icon to open the sidepanel.</p>
+  </section>
+  <div id="logo">
+   <a class="home"href="homepage.html">
+   <img class="logo"src="icon/logo.png" alt="logo of the website Ro" height="100">
+   </a>
+  </div>
+  <!--end logo-->
+
+  <div id="cont_text">
+   <h1 class="title">Roberta Chioccia</h1><br>
+   <h2 class="desc">Photographer/Cameraman</h2>
+  </div>
+
+  <div>
+   <span class="dot"></span>
+   <span class="dot"></span>
+   <span class="dot"></span>
+   <span class="dot"></span>
+  </div>
+
+</div>
+
+<script>
+
+var cont = 0;
+var imgArray = new Array();
+
+imgArray[0] = new Image();
+imgArray[0].src = 'img/homePage0.jpg';
+
+imgArray[1] = new Image();
+imgArray[1].src = 'img/homePage1.jpg';
+
+imgArray[2] = new Image();
+imgArray[2].src = 'img/homePage2.jpg';
+
+imgArray[3] = new Image();
+imgArray[3].src = 'img/homePage3.jpg';
+
+function changeImage(){
+  cont = (cont + 1) % imgArray.length;
+  document.getElementById('slideshow').src=imgArray[cont].src;
+ }
+
+document.getElementById('slideshow').addEventListener("click",changeImage);
+
+</script>
+
+</body>
+</html>
