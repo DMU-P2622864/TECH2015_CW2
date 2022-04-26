@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="theme-light">
+  <head>
+    <meta charset="utf-8">
+    <title>Roberta Chioccia</title>
+    <title>Roberta Chioccia</title>
+    <link href="css/menu.css"  rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.typekit.net/fie2hjm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+<section>
+  <div class="cursor"></div>
+  <div class="container">
+     <div class="grad" >
+       <div class="toggle_menu">
+         <label class="switch">
+           <input type="checkbox" id="checkbox" onclick="toggleTheme()">
+           <span class="moving round"></span>
+         </label>
+       </div>
+     </div>
+     <!-- icon of the hamburger-->
+     <nav class="navbar">
+       <div class="grad2" >
+         <div class="toggle_menu2">
+           <label class="switch2">
+             <input type="checkbox" id="checkbox2" onclick="toggleTheme2()">
+             <span class="moving2 round2"></span>
+           </label>
+         </div>
+       </div>
+  <div class="hamburger-menu">
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+  </div>
+
+     <!-- navigation menu list link elements-->
+
+     <ul class="nav-list">
+       <li class="nav-item">
+         <a href="index.html" class="nav-link">Home</a>
+       </li>
+
+       <li class="nav-item">
+         <a href="black&white.html" class="nav-link">Black & White</a>
+       </li>
+
+       <li class="nav-item">
+         <a href="colour.html" class="nav-link">Colour</a>
+       </li>
+
+       <li class="nav-item">
+         <a href="contact.html" class="nav-link">Contact</a>
+       </li>
+
+     </ul>
+   </nav>
+  </div>
+  <!--start logo-->
+   <div id="logo">
+     <a class="home"href="index.html">
+     <img class="logo"src="icon/logo.png" alt="logo of the website Ro" height="100">
+     </a>
+   </div>
+
+   <h1 class="middle">Contact</h1>
+   <span class="under_score_contact"></span>
+
+     <h2 class="pinch">A pinch about me</h2>
+ <div class="container_contact">
+   <div class="form">
+    <form action="file:///Users/robertachioccia/Desktop/TECH2015_CW2/thanks_message.html">
+      <label id="Fname"for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" value=""><br><br>
+      <label id="Lname"for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname" value=""><br><br>
+      <label id="Email"for="email">Your email:</label>
+      <input type="email" id="email" name="email" value=""><br><br><br>
+
+      <textarea name="message" rows="10" cols="30">
+      Enter your message!
+      </textarea>
+      <input type="submit" value="Submit" id="addUser">
+    </form>
+  </div>
+
+  <div class="vidDown">
+    <div class="video">
+      <video width="420" height="340"controls poster="img/me.jpg" >
+        <source src="https://" type="video/">
+        <source src="https://" type="video/">
+        <source src="https://" type="video/">
+      </video>
+    </div>
+
+    <div class="download_button">
+      <a href="img/CV.jpg" download="Roberta Chioccia's C.V."><button class="download"><i class="fa fa-download"></i> Download my C.V.</button></a>
+    </div>
+  </div>
+ </div>
+</section>
+
+<footer>
+    <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
+    <h2 id="name">Social Media</h2>
+    <a href="https://www.youtube.com/channel/UCaKD4g8lBkvBKTnPiHrlIeQ"><img src="icon/yt.png" alt="youtube"></a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+    <script>
+
+//changing the hamburger menu in X when clicked
+/*calling the container of the line of  the hamburger menu and its parent and assign them the variable
+plus  calling the checkbox element of the switch bottom and assign a variable*/
+
+    let menuIcon = document.querySelector('.hamburger-menu');
+    let navbar = document.querySelector('.navbar');
+
+  /*on click run the function with a method called toggle which instead to add it change the hamburger
+    in x otherwise will keep its default state*/
+    menuIcon.addEventListener('click', () => {
+      navbar.classList.toggle("change");
+    });
+
+
+    // function to set a given theme/color-scheme
+
+      function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.className = themeName;
+      }
+
+   // function to toggle between light and dark theme
+      function toggleTheme() {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+          setTheme('theme-light');
+         } else {
+          setTheme('theme-dark');
+         }
+        };
+
+   //second toggle for the nav bar menu.
+      function toggleTheme2() {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+         setTheme('theme-light');
+         } else {
+         setTheme('theme-dark');
+         }
+       };
+
+
+//user form
+      let db = new PouchDB("userForm");
+
+     function userNew() {
+      let theDate = new Date().toISOString();
+      let user = {
+         _id: theDate,
+      name: document.getElementById("fname").value,
+      lastname: document.getElementById("lname").value,
+      email: document.getElementById("email").value,
+
+    };
+   db.put(user);
+   }
+     document.getElementById("addUser").addEventListener("click", userNew);
+
+     //custom the cursor
+     let mouseCursor = document.querySelector(".cursor ");
+     //creating a function that has access to the event (e) which reveals the coordinate of where the mouse is
+     function cursor(e) {
+     // so take the var and style the top at the event corresponding on the location of the Y and X plus px === like css
+       mouseCursor.style.top = e.pageY + 'px';
+       mouseCursor.style.left = e.pageX + 'px';
+     }
+
+     window.addEventListener('mousemove', cursor);
+
+    </script>
+
+  </body>
+</html>

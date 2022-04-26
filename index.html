@@ -1,75 +1,202 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="theme-light">
   <head>
     <meta charset="utf-8">
     <title>Roberta Chioccia</title>
-    <link href="css/master.css"  rel="stylesheet" type="text/css">
+    <link href="css/menu.css"  rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.typekit.net/fie2hjm.css">
   </head>
 
 <body>
-  <!--background img start-->
-  <div id="slideshow">
-  <!--start logo -->
-  <section>
-    <div id="mySidepanel" class="sidepanel">
-     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-     <a href="#">home</a>
-     <a href="#">Services</a>
-     <a href="#">Clients</a>
-     <a href="#">Contact</a>
-</div>
+<div class="cursor"></div>
 
-<button class="openbtn" onclick="openNav()">☰ Toggle Sidepanel</button>
-<h2>Collapsed Sidepanel</h2>
-<p>Click on the hamburger menu/bar icon to open the sidepanel.</p>
-  </section>
-  <div id="logo">
-   <a class="home"href="homepage.html">
-   <img class="logo"src="icon/logo.png" alt="logo of the website Ro" height="100">
-   </a>
+ <section class="slide-show">
+  <!--hamburger menu-->
+  <div class="container">
+   <nav class="navbar">
+     <div class="grad2" >
+       <div class="toggle_menu2">
+         <label id="switch">
+           <input type="checkbox" id="checkbox2" onclick="toggleTheme2(); changeLogo2()">
+           <span class="moving2 round2"></span>
+         </label>
+       </div>
+     </div>
+     <!-- icon of the hamburger-->
+  <div class="hamburger-menu">
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
   </div>
+
+     <!-- navigation menu list link elements-->
+     <ul class="nav-list">
+       <li class="nav-item">
+         <a href="index.html" class="nav-link">Home</a>
+       </li>
+
+       <li class="nav-item">
+         <a href="black&white.html" class="nav-link">Black & White</a>
+       </li>
+
+       <li class="nav-item">
+         <a href="colour.html" class="nav-link">Colour</a>
+       </li>
+
+       <li class="nav-item">
+         <a href="contact.html" class="nav-link">Contact</a>
+       </li>
+
+     </ul>
+   </nav>
+  </div>
+  <!--start logo-->
+
+   <div id="logo">
+     <a class="home"href="index.html">
+     <img class="logo"src="icon/logo.png" alt="logo of the website Ro" height="100">
+     </a>
+   </div>
   <!--end logo-->
 
-  <div id="cont_text">
-   <h1 class="title">Roberta Chioccia</h1><br>
-   <h2 class="desc">Photographer/Cameraman</h2>
+  <input type="radio" name="radio-btn" id="radio1">
+  <input type="radio" name="radio-btn" id="radio2">
+  <input type="radio" name="radio-btn" id="radio3">
+  <input type="radio" name="radio-btn" id="radio4">
+
+
+   <div class="slide first">
+    <img src="img/HomePage.jpg" alt="picture 1_the old man and sea">
+      <h1>Roberta Chioccia</h1>
+      <p>Camera operator/ Photographer</p>
+   </div>
+
+   <div class="slide">
+    <img src="img/HomePage0.jpg" alt="">
+      <h1>Roberta Chioccia</h1>
+      <p>Camera operator/ Photographer</p>
+   </div>
+
+   <div class="slide">
+    <img src="img/HomePage1.jpg" alt="">
+      <h1>Roberta Chioccia</h1>
+      <p>Camera operator/ Photographer</p>
+   </div>
+
+   <div class="slide">
+    <img src="img/HomePage2.jpg" alt="">
+      <h1>Roberta Chioccia</h1>
+      <p>Camera operator/ Photographer</p>
+   </div>
+
+   <div class="navigation-auto">
+    <div class="auto-btn1"></div>
+    <div class="auto-btn2"></div>
+    <div class="auto-btn3"></div>
+    <div class="auto-btn4"></div>
+   </div>
+
+
+  <div class="navigation-manual">
+  <label for="radio1"id="manual-btn"></label>
+  <label for="radio2"id="manual-btn"></label>
+  <label for="radio3"id="manual-btn"></label>
+  <label for="radio4"id="manual-btn"></label>
   </div>
+</section>
 
-  <div>
-   <span class="dot"></span>
-   <span class="dot"></span>
-   <span class="dot"></span>
-   <span class="dot"></span>
-  </div>
 
-</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
 <script>
 
-var cont = 0;
-var imgArray = new Array();
+let counter = 1;
 
-imgArray[0] = new Image();
-imgArray[0].src = 'img/homePage0.jpg';
+setInterval (function(){
+  document.getElementById('radio'+ counter). checked = true;
+  counter++;
+  if (counter >4){
+    counter = 1;
+  }
+},2000);
 
-imgArray[1] = new Image();
-imgArray[1].src = 'img/homePage1.jpg';
+//changing the hamburger menu in X when clicked
+/*calling the container of the line of  the hamburger menu and its parent and assign them the variable
+plus  calling the checkbox element of the switch bottom and assign a variable*/
 
-imgArray[2] = new Image();
-imgArray[2].src = 'img/homePage2.jpg';
+    let menuIcon = document.querySelector('.hamburger-menu');
+    let navbar = document.querySelector('.navbar');
 
-imgArray[3] = new Image();
-imgArray[3].src = 'img/homePage3.jpg';
+  /*on click run the function with a method called toggle which instead to add it change the hamburger
+    in x otherwise will keep its default state*/
+    menuIcon.addEventListener('click', () => {
+      navbar.classList.toggle("change");
+    });
 
-function changeImage(){
-  cont = (cont + 1) % imgArray.length;
-  document.getElementById('slideshow').src=imgArray[cont].src;
- }
 
-document.getElementById('slideshow').addEventListener("click",changeImage);
+    // function to set a given theme/color-scheme on the main pages
+
+      function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.className = themeName;
+      }
+
+   // function to toggle between light and dark theme
+      function toggleTheme() {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+          setTheme('theme-light');
+         } else {
+          setTheme('theme-dark');
+         }
+        };
+  //this function is running when the toggleTheme() is also running so when the theme background is changing
+  //also the gradient var is changing in css therefore the logo would have been unreadible as the gradient blackground
+  //and the logo were both black. On click, then the function will run if the image source  displaylogo is === match the source display logow else return the logo
+      function changeLogo() {
+      let displayLogo = document.querySelector(".logo")
+      if(displayLogo.src.match('icon/logo.png')){
+         displayLogo.src = 'icon/logow.png'
+         } else {
+         displayLogo.src = 'icon/logo.png'
+         }
+        };
+
+   //second toggle for the nav bar menu that overlay the main pages.
+      function toggleTheme2() {
+      if (localStorage.getItem('theme') === 'theme-dark') {
+         setTheme('theme-light');
+         } else {
+         setTheme('theme-dark');
+         }
+       };
+
+       function changeLogo2() {
+       let displayLogo = document.querySelector(".logo")
+       if(displayLogo.src.match('icon/logo.png')){
+          displayLogo.src = 'icon/logow.png'
+          } else {
+          displayLogo.src = 'icon/logo.png'
+          }
+         };
+
+
+
+//custom the cursor
+let mouseCursor = document.querySelector(".cursor ");
+//creating a function that has access to the event (e) which reveals the coordinate of where the mouse is
+function cursor(e) {
+// so take the var and style the top at the event corresponding on the location of the Y and X plus px === like css
+  mouseCursor.style.top = e.pageY + 'px';
+  mouseCursor.style.left = e.pageX + 'px';
+}
+
+window.addEventListener('mousemove', cursor);
+
+
 
 </script>
+
+
 
 </body>
 </html>
