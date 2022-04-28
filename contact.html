@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>Roberta Chioccia</title>
-    <title>Roberta Chioccia</title>
     <link href="css/menu.css"  rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.typekit.net/fie2hjm.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,53 +11,56 @@
 
 <section>
   <div class="cursor"></div>
+  <!-- 1st grad on the main page+ toggle switch-->
   <div class="container">
      <div class="grad" >
        <div class="toggle_menu">
          <label class="switch">
-           <input type="checkbox" id="checkbox" onclick="toggleTheme()">
+           <input type="checkbox" id="checkbox" onclick="toggleTheme();changeLogo();">
            <span class="moving round"></span>
          </label>
        </div>
      </div>
-     <!-- icon of the hamburger-->
+    </div>
+     <!-- 2nd grad on the menu page+ toggle switch -->
      <nav class="navbar">
        <div class="grad2" >
          <div class="toggle_menu2">
            <label class="switch2">
-             <input type="checkbox" id="checkbox2" onclick="toggleTheme2()">
+             <input type="checkbox" id="checkbox2" onclick="toggleTheme2();changeLogo2();">
              <span class="moving2 round2"></span>
            </label>
          </div>
        </div>
-  <div class="hamburger-menu">
-    <div class="line line-1"></div>
-    <div class="line line-2"></div>
-    <div class="line line-3"></div>
-  </div>
+
+       <!-- icon of the hamburger-->
+         <div class="hamburger-menu" onclick="changeOpacity3()">
+           <div class="line line-1"></div>
+           <div class="line line-2"></div>
+           <div class="line line-3"></div>
+         </div>
 
      <!-- navigation menu list link elements-->
 
-     <ul class="nav-list">
-       <li class="nav-item">
-         <a href="index.html" class="nav-link">Home</a>
-       </li>
+         <ul class="nav-list">
+           <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+           </li>
 
-       <li class="nav-item">
-         <a href="black&white.html" class="nav-link">Black & White</a>
-       </li>
+           <li class="nav-item">
+            <a href="black&white.html" class="nav-link">Black & White</a>
+           </li>
 
-       <li class="nav-item">
-         <a href="colour.html" class="nav-link">Colour</a>
-       </li>
+           <li class="nav-item">
+            <a href="colour.html" class="nav-link">Colour</a>
+           </li>
 
-       <li class="nav-item">
-         <a href="contact.html" class="nav-link">Contact</a>
-       </li>
+           <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+         </ul>
+       </nav>
 
-     </ul>
-   </nav>
-  </div>
   <!--start logo-->
    <div id="logo">
      <a class="home"href="index.html">
@@ -69,10 +71,13 @@
    <h1 class="middle">Contact</h1>
    <span class="under_score_contact"></span>
 
-     <h2 class="pinch">A pinch about me</h2>
- <div class="container_contact">
-   <div class="form">
-    <form action="file:///Users/robertachioccia/Desktop/TECH2015_CW2/thanks_message.html">
+     <h2 class="pinch">A PINCH ABOUT ME</h2>
+     <p class="pinch-text"> I have always been passionate about photography, but my first real approach was when on the street I found a camera with 3 lenses and from there I change my life, before then I used my grandfather's camera which had a solar panel as an exposure meter. ... stuff of other times.
+      After I finished classical studies at the high school I took a course in photography and a course of DoP  at the cinecitta's in Rome, after completing my studies I started working for Sky News in Italy as an assistant, first then a cameraman for six years. With the Italian crisis I moved to great britain and I am currently a student at De montfort University, but I never stop taking pictures. </p>
+     <h2 class="pinch">CONTACT ME</h2>
+   <div class="container_contact">
+    <div class="form">
+     <form action="file:///Users/robertachioccia/Desktop/TECH2015_CW2/thanks_message.html">
       <label id="Fname"for="fname">First name:</label>
       <input type="text" id="fname" name="fname" value=""><br><br>
       <label id="Lname"for="lname">Last name:</label>
@@ -84,6 +89,11 @@
       Enter your message!
       </textarea>
       <input type="submit" value="Submit" id="addUser">
+      <audio id="audio2" style="display:none">
+        <source src="aud/camera.mp3" type="audio/mpeg">
+        <source src="aud/camera.ogg" type="audio/ogg">
+        <source src="aud/camera.wav" type="audio/wav">
+      </audio>
     </form>
   </div>
 
@@ -98,20 +108,24 @@
     </div>
 
     <div class="download_button">
-      <a href="img/CV.jpg" download="Roberta Chioccia's C.V."><button class="download"><i class="fa fa-download"></i> Download my C.V.</button></a>
+      <a href="img/CV.jpg" download="Roberta Chioccia's C.V."><button class="download" onclick="cameraSound()"><i class="fa fa-download"></i> Download my C.V.</button></a>
     </div>
   </div>
  </div>
 </section>
 
-<footer>
-    <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
-    <h2 id="name">Social Media</h2>
-    <a href="https://www.youtube.com/channel/UCaKD4g8lBkvBKTnPiHrlIeQ"><img src="icon/yt.png" alt="youtube"></a>
-</footer>
+<footer id="foot">
+    <div class="insta">
+      <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
-    <script>
+    <div class="yt">
+      <a href="https://www.youtube.com/channel/UCaKD4g8lBkvBKTnPiHrlIeQ"><img src="icon/yt.png" alt="youtube"></a>
+    </div>
+
+</footer>
+<script type="text/javascript">
+
 
 //changing the hamburger menu in X when clicked
 /*calling the container of the line of  the hamburger menu and its parent and assign them the variable
@@ -143,6 +157,19 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
          }
         };
 
+    //this function is running when the toggleTheme() is also running so when the theme background is changing
+    //also the gradient var is changing in css therefore the logo would have been unreadible as the gradient blackground
+    //and the logo were both black. On click, then the function will run if the image source  displaylogo is === match the source display logow else return the logo
+      function changeLogo() {
+      let displayLogo = document.querySelector(".logo")
+      if(displayLogo.src.match('icon/logo.png')){
+         displayLogo.src = 'icon/logow.png'
+         } else {
+         displayLogo.src = 'icon/logo.png'
+         }
+        };
+
+
    //second toggle for the nav bar menu.
       function toggleTheme2() {
       if (localStorage.getItem('theme') === 'theme-dark') {
@@ -152,22 +179,19 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
          }
        };
 
-
-//user form
-      let db = new PouchDB("userForm");
-
-     function userNew() {
-      let theDate = new Date().toISOString();
-      let user = {
-         _id: theDate,
-      name: document.getElementById("fname").value,
-      lastname: document.getElementById("lname").value,
-      email: document.getElementById("email").value,
-
-    };
-   db.put(user);
-   }
-     document.getElementById("addUser").addEventListener("click", userNew);
+  //changing logo when user click on toggle the gradient of the nav bar was black as the logo so to change it we run a function.
+       function changeLogo2() {
+         //we take the element logo and assign a var
+       let displayLogo = document.querySelector(".logo")
+       //if the var match with the logo than run this code
+       if(displayLogo.src.match('icon/logo.png')){
+         //display logow
+          displayLogo.src = 'icon/logow.png'
+          } else {
+            //else display the original logo
+          displayLogo.src = 'icon/logo.png'
+          }
+         };
 
      //custom the cursor
      let mouseCursor = document.querySelector(".cursor ");
@@ -180,6 +204,44 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
 
      window.addEventListener('mousemove', cursor);
 
+     // play the sound of camera shutter when the user click on submit---
+     function cameraSound() {
+       //take the audio and assign a var--
+       let click = document.getElementById('audio2');
+       //let the var play
+       click.play();
+     }
+
+    //changing the opacity for desktop---
+     function changeOpacity3() {
+       let loOp = document.getElementById('logo');
+       let conOp = document.querySelector('.container');
+       let swiOP = document.querySelector('.switch');
+       let midOp = document.querySelector('.middle');
+       let undOp = document.querySelector('.under_score_contact');
+       let pinOp = document.querySelector('.pinch');
+       let teOp = document.querySelector('.pinch-text');
+       let conCon = document.querySelector('.container_contact');
+       let form = document.querySelector('.form');
+       let vidDown = document.querySelector('.vidDown');
+       let video = document.querySelector('.video');
+       let doOp = document.querySelector('.download_button');
+       let foot  = document.getElementById('foot');
+
+       loOp.classList.toggle('opacity');
+       conOp.classList.toggle('opacity');
+       swiOP.classList.toggle('opacity-switch');
+       midOp.classList.toggle('opacity');
+       undOp.classList.toggle('opacity');
+       pinOp.classList.toggle('opacity');
+       teOp.classList.toggle('opacity');
+       conCon.classList.toggle('opacity');
+       form.classList.toggle('opacity');
+       vidDown.classList.toggle('opacity');
+       video.classList.toggle('opacity');
+       doOp.classList.toggle('opacity');
+       foot.classList.toggle('opacity');
+     };
     </script>
 
   </body>

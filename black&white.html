@@ -21,43 +21,44 @@
    </div>
 
      <!-- icon of the hamburger-->
+
      <nav class="navbar">
        <div class="grad2" >
          <div class="toggle_menu2">
            <label class="switch2">
-             <input type="checkbox" id="checkbox2" onclick="toggleTheme2();changeLogo2();changeOpacity();">
+             <input type="checkbox" id="checkbox2" onclick="toggleTheme2();changeLogo2();">
              <span class="moving2 round2"></span>
            </label>
          </div>
        </div>
-  <div class="hamburger-menu">
-    <div class="line line-1"></div>
-    <div class="line line-2"></div>
-    <div class="line line-3"></div>
-  </div>
+
+       <div class="hamburger-menu" onclick="changeOpacity()">
+         <div class="line line-1"></div>
+         <div class="line line-2"></div>
+         <div class="line line-3"></div>
+       </div>
 
      <!-- navigation menu list link elements-->
+         <ul class="nav-list">
+           <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+           </li>
 
-     <ul class="nav-list">
-       <li class="nav-item">
-         <a href="index.html" class="nav-link">Home</a>
-       </li>
+           <li class="nav-item">
+             <a href="black&white.html" class="nav-link">Black & White</a>
+           </li>
 
-       <li class="nav-item">
-         <a href="black&white.html" class="nav-link">Black & White</a>
-       </li>
+           <li class="nav-item">
+            <a href="colour.html" class="nav-link">Colour</a>
+           </li>
 
-       <li class="nav-item">
-         <a href="colour.html" class="nav-link">Colour</a>
-       </li>
-
-       <li class="nav-item">
-         <a href="contact.html" class="nav-link">Contact</a>
-       </li>
+           <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+           </li>
 
      </ul>
    </nav>
-  </div>
+
   <!--start logo-->
 
    <div id="logo">
@@ -68,48 +69,54 @@
 
    <h1 class="middle">Black & White</h1>
    <span class="under_score"></span>
-
+ <!--creatin a container for all the img and text and the modal content following https://www.youtube.com/watch?v=CojYeBTNgL8-->
     <div class="img-container">
       <div class="images">
            <div class="wrap">
-             <img class="gall"src="img/1g.jpg" alt="Hand shaking with Prince Charles, Leicester-England">
+             <img class="gall"src="img/1g.jpg" alt="Hand shaking with Prince Charles, Leicester-England"/>
               <p class="text">Leicester-England</p>
           </div>
           <div class="wrap">
-            <img class="gall"src="img/2g.jpg" alt="Fishermen's village,Isla de Culatra-Portugal">
+            <img class="gall"src="img/2g.jpg" alt="Fishermen's village,Isla de Culatra-Portugal"/>
                <p class="text">Isla de Culatra-Portugal</p>
           </div>
           <div class="wrap">
-            <img class="gall"src="img/3g.jpg" alt="Little boy catching a soap bubble,Sevilla- Spain">
+            <img class="gall"src="img/3g.jpg" alt="Little boy catching a soap bubble,Sevilla- Spain"/>
                <p class="text">Sevilla- Spain</p>
           </div>
           <div class="wrap">
-            <img class="gall"src="img/4g.jpg" alt="Little girl plays with a plastic bag, Sevilla-Spain">
+            <img class="gall"src="img/4g.jpg" alt="Little girl plays with a plastic bag, Sevilla-Spain"/>
                <p class="text">Sevilla-Spain</p>
           </div>
           <div class="wrap">
-            <img class="gall"src="img/5g.jpg" alt="Yawn cat, Alicante-Spain">
+            <img class="gall"src="img/5g.jpg" alt="Yawn cat, Alicante-Spain"/>
                <p class="text">Alicante-Spain</p>
           </div>
           <div class="wrap">
-            <img class="gall"src="img/6g.jpg" alt="Hug,Bristol-England">
+            <img class="gall"src="img/6g.jpg" alt="Hug,Bristol-England"/>
                <p class="text">Bristol-England</p>
           </div>
      </div>
      <div class="modal">
        <span class="close">&times</span>
-     <div class="modalContent">
-       <img src="" class="modalImg">
-       <span class="modalTxt"></span>
+       <div class="modalContent">
+       <!--this img does not have an image but it depends on which image is click on the img before-->
+         <img src="" class="modalImg"/>
+         <span class="modalTxt"></span>
+       </div>
      </div>
    </div>
-  </div>
 
-<footer>
-    <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
-    <h2 id="name">Social Media</h2>
-    <a href="https://www.youtube.com/channel/UCaKD4g8lBkvBKTnPiHrlIeQ"><img src="icon/yt.png" alt="youtube"></a>
-</footer>
+  <footer id="foot">
+      <div class="insta">
+        <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
+      </div>
+
+      <div class="yt">
+        <a href="https://www.youtube.com/channel/UCaKD4g8lBkvBKTnPiHrlIeQ"><img src="icon/yt.png" alt="youtube"></a>
+      </div>
+
+  </footer>
 
 
 
@@ -127,86 +134,173 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
       navbar.classList.toggle("change");
     });
 
+        // function to set a given theme/color-scheme
 
-    // function to set a given theme/color-scheme on the main pages
-
-      function setTheme(themeName) {
-      localStorage.setItem('theme', themeName);
-      document.documentElement.className = themeName;
-      }
-
-   // function to toggle between light and dark theme
-      function toggleTheme() {
-      if (localStorage.getItem('theme') === 'theme-dark') {
-          setTheme('theme-light');
-         } else {
-          setTheme('theme-dark');
-         }
-        };
-  //this function is running when the toggleTheme() is also running so when the theme background is changing
-  //also the gradient var is changing in css therefore the logo would have been unreadible as the gradient blackground
-  //and the logo were both black. On click, then the function will run if the image source  displaylogo is === match the source display logow else return the logo
-      function changeLogo() {
-      let displayLogo = document.querySelector(".logo")
-      if(displayLogo.src.match('icon/logo.png')){
-         displayLogo.src = 'icon/logow.png'
-         } else {
-         displayLogo.src = 'icon/logo.png'
-         }
-        };
-
-   //second toggle for the nav bar menu that overlay the main pages.
-      function toggleTheme2() {
-      if (localStorage.getItem('theme') === 'theme-dark') {
-         setTheme('theme-light');
-         } else {
-         setTheme('theme-dark');
-         }
-       };
-
-       function changeLogo2() {
-       let displayLogo = document.querySelector(".logo")
-       if(displayLogo.src.match('icon/logo.png')){
-          displayLogo.src = 'icon/logow.png'
-          } else {
-          displayLogo.src = 'icon/logo.png'
+          function setTheme(themeName) {
+          localStorage.setItem('theme', themeName);
+          document.documentElement.className = themeName;
           }
-         };
+
+       // function to toggle between light and dark theme
+          function toggleTheme() {
+          if (localStorage.getItem('theme') === 'theme-dark') {
+              setTheme('theme-light');
+             } else {
+              setTheme('theme-dark');
+             }
+            };
+
+        //this function is running when the toggleTheme() is also running so when the theme background is changing
+        //also the gradient var is changing in css therefore the logo would have been unreadible as the gradient blackground
+        //and the logo were both black. On click, then the function will run if the image source  displaylogo is === match the source display logow else return the logo
+          function changeLogo() {
+          let displayLogo = document.querySelector(".logo")
+          if(displayLogo.src.match('icon/logo.png')){
+             displayLogo.src = 'icon/logow.png'
+             } else {
+             displayLogo.src = 'icon/logo.png'
+             }
+            };
 
 
+       //second toggle for the nav bar menu.
+          function toggleTheme2() {
+          if (localStorage.getItem('theme') === 'theme-dark') {
+             setTheme('theme-light');
+             } else {
+             setTheme('theme-dark');
+             }
+           };
+
+      //changing logo when user click on toggle the gradient of the nav bar was black as the logo so to change it we run a function.
+           function changeLogo2() {
+             //we take the element logo and assign a var
+           let displayLogo = document.querySelector(".logo")
+           //if the var match with the logo than run this code
+           if(displayLogo.src.match('icon/logo.png')){
+             //display logow
+              displayLogo.src = 'icon/logow.png'
+              } else {
+                //else display the original logo
+              displayLogo.src = 'icon/logo.png'
+              }
+             };
 
 // enlarging images-- first we select all the images inside the container with class img as would have been done in css
 // with the same method are declared the other elements
 
+     // store all the images inside a var
      images = document.querySelectorAll(".images img");
+     //store the modal
      modal = document.querySelector(".modal");
+     //store the modal img
      modalImg = document.querySelector(".modalImg");
+     //store the modal text
      modalTxt = document.querySelector(".modalTxt");
+     //store the close button
      close = document.querySelector(".close");
 
-//then its created a loop, where th
+//then run  a loop, whenever the user  click on the images
       images.forEach((image) => {
+        //when the click is executed run the function
         image.addEventListener("click", () => {
+          //changing the source of the modal image the one that in html is empty
+          //what ever image the user click assign that source to the modalImg.src
           modalImg.src = image.src;
+          //same for the text change the inner of html based on the alt text assigned
           modalTxt.innerHTML = image.alt;
+          //adding a class to a modal the class is .appear css
           modal.classList.add("appear");
-
+          // when the close button is click the class assign to the modal is removed
           close.addEventListener("click", () => {
             modal.classList.remove("appear");
           });
         });
       });
 
-      //custom the cursor
+      //custom the cursor following the tutorial online https://www.youtube.com/watch?v=TpwpAYi-p2w&t=303s
       let mouseCursor = document.querySelector(".cursor ");
+      //when the mouse hover on top of the gradient,logo and hamb menu it change the style so store the link inside a variable
+      let grad = document.querySelector('.grad');
+      let logo = document.getElementById('logo');
+      let hamb = document.querySelector('.hamburger-menu');
+      //when the mouse hover on top of the images it change the style so store the link inside a variable
+      let allImg = document.querySelectorAll('.gall');
       //creating a function that has access to the event (e) which reveals the coordinate of where the mouse is
       function cursor(e) {
       // so take the var and style the top at the event corresponding on the location of the Y and X plus px === like css
         mouseCursor.style.top = e.pageY + 'px';
         mouseCursor.style.left = e.pageX + 'px';
       }
-
+      // add an event addEventListener to the window if the mouse move run the function cursor
       window.addEventListener('mousemove', cursor);
+
+      //when the mouse over on top of the gradient add the grow style of css
+      grad.addEventListener("mouseover",()=>{
+        mouseCursor.classList.add('grow');
+      });
+      //when the mouse leave  the gradient remove the grow style of css
+      grad.addEventListener("mouseleave",()=>{
+        mouseCursor.classList.remove('grow');
+      });
+
+      logo.addEventListener("mouseover",()=>{
+        mouseCursor.classList.add('grow');
+      });
+
+      logo.addEventListener("mouseleave",()=>{
+        mouseCursor.classList.remove('grow');
+      });
+
+      hamb.addEventListener("mouseover",()=>{
+        mouseCursor.classList.add('grow');
+      });
+      //when the mouse leave  the gradient remove the grow style of css
+      hamb.addEventListener("mouseleave",()=>{
+        mouseCursor.classList.remove('grow');
+      });
+
+
+      // for all images when mouse over on top add a filter styled in css when leave remove the filter
+     allImg.forEach((image) => {
+       image.addEventListener("mouseover",()=>{
+         mouseCursor.classList.add('filter');
+       });
+       image.addEventListener("mouseleave",()=>{
+         mouseCursor.classList.remove('filter');
+     });
+    });
+
+
+      //before of assign toggle the elements inside the function i tried also
+      //create a div that contains all the elements and tried to toggle just the div but it did not work
+      //changing the opacity for the desktop screen */
+      //function changeOpacity() {
+      //let newFriend = document.querySelector('.myFriend');
+      //newFriend.classList.toggle('opacity');
+      //};
+
+     //changing the opacity of the elements when the nav-bar is open*/
+     //i tried first to put all those element in an array and than toggle the class list to the
+     //array instead to call each element. i could try the loop with if else but like that i was sure to not make a mistakes.
+      function changeOpacity() {
+        let loOp = document.getElementById('logo');
+        let conOp = document.querySelector('.container');
+        let midOp = document.querySelector('.middle');
+        let undOp = document.querySelector('.under_score');
+        let imgOp = document.querySelector('.img-container');
+        let swiOP = document.querySelector('.switch');
+        let foot  = document.getElementById('foot');
+
+        loOp.classList.toggle('opacity');
+        conOp.classList.toggle('opacity');
+        midOp.classList.toggle('opacity');
+        undOp.classList.toggle('opacity');
+        imgOp.classList.toggle('opacity');
+        swiOP.classList.toggle('opacity-switch');
+        foot.classList.toggle('opacity');
+      };
+
 </script>
 
 </body>

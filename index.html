@@ -8,22 +8,32 @@
   </head>
 
 <body>
+<!--creating an empty div call cursor we use it later in js and styling in css-->
 <div class="cursor"></div>
 
  <section class="slide-show">
-  <!--hamburger menu-->
+   <!--for the creation of the hamburger menu and the navbar was followed the online tutorial https://www.youtube.com/watch?v=BN6fH1nRDxA for the creation of the gradient https://www.w3schools.com/css/css3_gradients_radial.asp and toggle switch I look at w3school.com-->
+  <!--creating a navbar inside at the navbar there is a gradient that contains a toggle -->
+  <!--the reason why the classes name assigned to the div is 2 is because in other page i created
+  another gradient and toggle swtich that goes on top of the main page while this goes on top of the navbar 'page'
+  i could work with the z-index and remove the gradient and the switch toggle on top of the slideshow, and i could solve the problem like that for the mobile version.
+  the problem would remained instead on desktop version where the size of the navbar 'page' is set to be the 50% so if i kept only one gradient it would appear like an interrupt line.-->
   <div class="container">
+   <!--wrap the content of nav bar-->
    <nav class="navbar">
      <div class="grad2" >
        <div class="toggle_menu2">
          <label id="switch">
+           <!-- when click on the toggle switch run the function toggle theme and change logo. as said before since there are 2 gradient and 2 toggle switch i need to function to run the code on both gradient and toggle the reason why is explained in js -->
            <input type="checkbox" id="checkbox2" onclick="toggleTheme2(); changeLogo2()">
            <span class="moving2 round2"></span>
          </label>
        </div>
      </div>
-     <!-- icon of the hamburger-->
-  <div class="hamburger-menu">
+
+     <!-- icon of the hamburger on click the change opcaity function will run reason explained in js-->
+  <div class="hamburger-menu" onclick="changeOpacity()">
+    <!-- 3 lines of the hamb menu common style = line individual style = line-1,etc.. -->
     <div class="line line-1"></div>
     <div class="line line-2"></div>
     <div class="line line-3"></div>
@@ -59,6 +69,11 @@
    </div>
   <!--end logo-->
 
+ <!-- the first try to wrap everything inside <div class="myFriend">
+  to call later in js, explained in js-->
+
+<!--slideshow image following the tutorial online https://www.youtube.com/watch?v=59JkdXoiYT0-->
+<!--creating an input radio button which are assign to thier manual bottom-->
   <input type="radio" name="radio-btn" id="radio1">
   <input type="radio" name="radio-btn" id="radio2">
   <input type="radio" name="radio-btn" id="radio3">
@@ -103,6 +118,8 @@
   <label for="radio3"id="manual-btn"></label>
   <label for="radio4"id="manual-btn"></label>
   </div>
+
+ </div>
 </section>
 
 
@@ -110,11 +127,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
 <script>
 
+//to know which picture is we need a counter
 let counter = 1;
-
+// with the setInterval we run the automatic slider so every to 2s the image changed
 setInterval (function(){
+  //so we take the element with the id radio the input plus the counter plus .checked in css that changes the position be true everytime we add a counter
   document.getElementById('radio'+ counter). checked = true;
   counter++;
+  //when the counter reach >4 we said that is equal to 1 so it starts again
   if (counter >4){
     counter = 1;
   }
@@ -122,12 +142,12 @@ setInterval (function(){
 
 //changing the hamburger menu in X when clicked
 /*calling the container of the line of  the hamburger menu and its parent and assign them the variable
-plus  calling the checkbox element of the switch bottom and assign a variable*/
+plus  calling the navbar element */
 
     let menuIcon = document.querySelector('.hamburger-menu');
     let navbar = document.querySelector('.navbar');
 
-  /*on click run the function with a method called toggle which instead to add it change the hamburger
+  /*on click run the function with a method called toggle which instead to add and then remove it symply toggle the hamburger
     in x otherwise will keep its default state*/
     menuIcon.addEventListener('click', () => {
       navbar.classList.toggle("change");
@@ -135,41 +155,35 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
 
 
     // function to set a given theme/color-scheme on the main pages
-
+    //first declare that the function store the item inside the local storage by setting the key is theme and the value to themeName
+   // than get the element by class name
       function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.className = themeName;
       }
+   //followed that get the item means that the browser is reading the data so inside a function --->
+   // if the key theme of the set theme is equal to dark than display light else display dark--->
 
-   // function to toggle between light and dark theme
-      function toggleTheme() {
+      function toggleTheme2() {
       if (localStorage.getItem('theme') === 'theme-dark') {
           setTheme('theme-light');
          } else {
           setTheme('theme-dark');
          }
-        };
-  //this function is running when the toggleTheme() is also running so when the theme background is changing
-  //also the gradient var is changing in css therefore the logo would have been unreadible as the gradient blackground
-  //and the logo were both black. On click, then the function will run if the image source  displaylogo is === match the source display logow else return the logo
-      function changeLogo() {
-      let displayLogo = document.querySelector(".logo")
-      if(displayLogo.src.match('icon/logo.png')){
-         displayLogo.src = 'icon/logow.png'
-         } else {
-         displayLogo.src = 'icon/logo.png'
-         }
-        };
+        }
 
-   //second toggle for the nav bar menu that overlay the main pages.
-      function toggleTheme2() {
-      if (localStorage.getItem('theme') === 'theme-dark') {
-         setTheme('theme-light');
-         } else {
-         setTheme('theme-dark');
-         }
-       };
+        // Immediately invoked function to set the theme on initial load
+       (function () {
+           if (localStorage.getItem('theme') === 'theme-dark') {
+               setTheme('theme-dark');
+           } else {
+               setTheme('theme-light');
+           }
+       })();
 
+       //this function is running when the toggleTheme() is also running so when the theme background is changing
+       //also the gradient var is changing in css therefore the logo would have been unreadible as the gradient blackground
+       //and the logo were both black. On click, then the function will run if the image source  displaylogo is === match the source display logow else return the logo
        function changeLogo2() {
        let displayLogo = document.querySelector(".logo")
        if(displayLogo.src.match('icon/logo.png')){
@@ -181,18 +195,37 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
 
 
 
-//custom the cursor
+//custom the cursor following the tutorial online https://www.youtube.com/watch?v=TpwpAYi-p2w&t=303s
 let mouseCursor = document.querySelector(".cursor ");
+//when the mouse hover on top of all links on the page it change the style so store the link inside a variable
+
 //creating a function that has access to the event (e) which reveals the coordinate of where the mouse is
 function cursor(e) {
 // so take the var and style the top at the event corresponding on the location of the Y and X plus px === like css
   mouseCursor.style.top = e.pageY + 'px';
   mouseCursor.style.left = e.pageX + 'px';
 }
-
+// add an event addEventListener to the window if the mouse move run the function cursor
 window.addEventListener('mousemove', cursor);
 
+//before of assign toggle the elements inside the function i tried also
+//create a div that contains all the elements and tried to toggle just the div but it did not work
+//changing the opacity for the desktop screen */
+//function changeOpacity() {
+//let newFriend = document.querySelector('.myFriend');
+//newFriend.classList.toggle('opacity');
+//};
+//the reason why i want that all the elements align to the navbar be half of their opacity is to be the navbar be more readable
+function changeOpacity() {
+  let loOp = document.getElementById('logo');
+  let navAuOp = document.querySelector('.navigation-auto');
+  let navMaOp = document.querySelector('.navigation-manual');
 
+  loOp.classList.toggle('opacity');
+  navAuOp.classList.toggle('opacity');
+  navMaOp.classList.toggle('opacity');
+
+};
 
 </script>
 

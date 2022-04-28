@@ -1,10 +1,14 @@
-/* eliminate default margin and padding for every element*/
 
+/*declaring a name and value for the custom property inside the scope that are changing in js*/
 
+/*creating 2 classes that containe all the colors for the dark and light theme tutorial
+https://medium.com/@haxzie/dark-and-light-theme-switcher-using-css-variables-and-pure-javascript-zocada-dd0059d72fa2*/
 .theme-light{
+  /*variable named black-color with a  value of a color*/
   --black-color:#5b5e6b;
   --white-color: #ffffff;
   --font-color:#5b5e6b;
+  /*create a var for the gradient*/
   --gradient: linear-gradient(to right, #ffffff,#808080,#000000);
 }
 
@@ -22,6 +26,7 @@ body{
   width:100vw;
   height:100vh;
   font-family: 'freight-text-pro', serif;
+  /*applied the custom property by calling the variable*/
   background-color: var(--white-color);
 }
 
@@ -35,12 +40,13 @@ body{
   position: relative;
 }
 
+
 /* stylingradient on top of the menu page*/
 .grad{
   display: flex;
   position: absolute;
   top:40px;
-  height:50px;
+  height:70px;
   /*changing the radial gradient to linear but in the center is still a radial shape*/
   width:100vw;
   background: var(--gradient);
@@ -50,13 +56,14 @@ body{
   display: flex;
   position: absolute;
   top:40px;
-  height:50px;
+  height:70px;
   /*changing the radial gradient to linear but in the center is still a radial shape*/
   width:100vw;
   background: var(--gradient);
 }
 /* styling the menu page (navbar)*/
 .navbar{
+  /*setting the width and hieght to be the full page for mobile version*/
   width:100vw;
   height:100%;
   /*
@@ -72,11 +79,11 @@ body{
   text-align: center;
   /*when the page appears on click the transition is smoother and accelerate into the animation*/
   transition: right .8s ease-in;
-  /*cover the page underneath3*/
+  /*goes over the other element*/
   z-index: 1;
 }
 
-/*to display the menu page its position its change to 0*/
+/*to display the menu page its position its change to 0 otherwise would be off of the page -2000px*/
 .change{
   right:0;
 }
@@ -84,8 +91,8 @@ body{
 
 /*styling the hamburger menu*/
 .hamburger-menu{
-  width:35px;
-  height:30px;
+  width:45px;
+  height:40px;
   /*position fixed on top right*/
   position:fixed;
   top:50px;
@@ -98,25 +105,22 @@ body{
   flex-direction: column;
   /*making space around lines*/
   justify-content: space-around;
-
 }
 
 /*lines of ham menu*/
 .line{
-  /*take up the entire width of his parent element which is 35px*/
+  /*take up the entire width of his parent element which is 45px*/
   width:100%;
   height:3px;
   background-color: var(--white-color);
-  /*
-  background-color: white;*/
-  /*when change the line of hamb menu in x (all) take .8s so the effect is smoother*/
+  /*when change the line of hamb menu in x js---(all) the transition take .8s so the effect is smoother*/
   transition: all .8s;
 }
 
-/*transforming the line when checked in X by rotating the z and translate it*/
+/*transforming the line when checked in X by rotating the z and translate it so the lines look like an X*/
 .change .line-1{
-  transform: rotateZ(-405deg) translate(-8px, 6px);
-
+  /* instead to rotate only for 45 degrees rotate 360 + 45 = 405 so it does a whole rotation*/
+  transform: rotateZ(-405deg) translate(-10px, 8px);
 }
 
 .change .line-2{
@@ -125,7 +129,7 @@ body{
 
 .change .line-3{
   /*rotating line for one whole rotation by 360+45 degrees*/
-  transform: rotateZ(405deg) translate(-8px, -6px);;
+  transform: rotateZ(405deg) translate(-10px, -8px);
 }
 
 /*get rid of bullets and create space using margin*/
@@ -153,8 +157,6 @@ body{
   width:100%;
   height:2px;
   background-color: var(--black-color);
-  /*
-  background-color: grey;
   /*display the lines assign position absolute to the line and relative to his parent*/
   position:absolute;
   /*align the line on top of the text to separate them a bottom position is assign after*/
@@ -165,7 +167,7 @@ body{
   transition: transform .5s;
 }
 
-/*separating the lines bottom and top and change their position when hover*/
+/*separating the lines bottom and top and change their original position when hover so the after line is starting from right and the other from left*/
 .nav-link::after{
   bottom:0;
   transform-origin: right;
@@ -193,13 +195,15 @@ body{
 
 #logo{
   position:absolute;
-  top:0;
+  top:25px;
   height:50px;
+  /*it remains on top of other object*/
   z-index: 1;
 }
 
 div.slide{
   width:100%;
+  /*transition between images*/
   transition: .6s;
   display:flex;
 }
@@ -241,7 +245,10 @@ input{
   font-size:150%;
 }
 
-/*css for manual slide navigation*/
+/*css for manual slide navigation
+manual and automatic button navigation have
+the same style as when the user click on one of the button
+the img will change so first was styling the navigation-manual and copied its value to automatic*/
 .navigation-manual{
   display:flex;
   position: absolute;
@@ -250,16 +257,18 @@ input{
   transform: translate(-50%,-50%);
 }
 
+/*creating the button since the display input is none we must make a button for the user to click*/
 #manual-btn{
- border: 2px solid red;
+ border: 4px solid red;
  padding:5px;
  border-radius: 10px;
  cursor: pointer;
  transition: 1s;
 }
 
+/*changing the margin between  all manual buttons*/
 #manual-btn:not(:last-child){
-  margin-right: 40px;
+  margin-right: 60px;
 }
 
 #manual-btn:hover{
@@ -267,7 +276,7 @@ input{
 }
 
 
-
+/*changing the img position with js everytime the counter goes up 1 it translate the img*/
 #radio1:checked~ .first{
   margin-left: 0;
 }
@@ -294,13 +303,13 @@ input{
 }
 
 .navigation-auto div{
-  border:2px solid red;
+  border:4px solid red;
   padding:5px;
   border-radius: 10px;
   transition: .6;
 }
 .navigation-auto div:not(:last-child){
-  margin-right: 40px;
+  margin-right: 60px;
 }
 
 #radio1:checked~ .navigation-auto .auto-btn1{
@@ -325,8 +334,6 @@ input{
   .navbar{
     width:50vw;
     height:100%;
-    /*
-    background-color:white;*/
     background-color: var(--white-color);
     position: fixed;
     /*position -1000px so its hidden*/
@@ -338,7 +345,7 @@ input{
     text-align: center;
     /*when the page appears on click the transition is smoother and accelerate into the animation*/
     transition: right .8s ease-in;
-    /*cover the page underneath3*/
+    /*cover the page underneath*/
     z-index: 1;
   }
 
@@ -346,7 +353,7 @@ input{
     display: flex;
     position: absolute;
     top:40px;
-    height:50px;
+    height:70px;
     /*changing the radial gradient to linear but in the center is still a radial shape*/
     width:50vw;
     background: var(--gradient);
@@ -380,9 +387,14 @@ input{
   }
 
 .opacity{
-   opacity:0.5;
+   opacity:0.1;
+   transition: opacity .3s 200ms ease-in;
 }
 
+.opacity-switch{
+   opacity:0;
+   transition: opacity .3s 200ms ease-in;
+}
 }
 /*-----------------------------------styling the menu (navigation) page---------------------*/
 
@@ -390,8 +402,8 @@ input{
 .toggle_menu{
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 50%;
+  width: 60px;
+  height: 55%;
   left:45%;
   top:25%;
 }
@@ -399,8 +411,8 @@ input{
 .toggle_menu2{
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 50%;
+  width: 60px;
+  height: 55%;
   left:45%;
   top:25%;
 }
@@ -445,10 +457,10 @@ at his origin*/
 .moving:before {
   position: absolute;
   content: "";
-  height: 22px;
-  width: 20px;
-  left: 2px;
-  bottom: 2px;
+  height: 28px;
+  width: 24px;
+  left: 4px;
+  bottom: 5px;
   /*background-color: white;*/
   background-color: var(--white-color);
   transition: .4s;
@@ -457,10 +469,10 @@ at his origin*/
 .moving2:before {
   position: absolute;
   content: "";
-  height: 22px;
-  width: 20px;
-  left: 2px;
-  bottom: 2px;
+  height: 28px;
+  width: 24px;
+  left: 4px;
+  bottom: 5px;
   /*background-color: white;*/
   background-color: var(--white-color);
   transition: .4s;
@@ -472,7 +484,7 @@ input:checked + .moving {
   background-color: var(--black-color);
 }
 
-/*when the input is checked changing the background color to gray and move its X to right*/
+/*when the input is checked changing the background color to gray and move its horizontal to right*/
 input:checked + .moving:before {
   transform: translateX(25px);
   background-color:var(--white-color);
@@ -507,6 +519,7 @@ input:checked + .moving2:before {
 
 /*----------------------black&white and colour page styling--------------------------------*/
 
+/*styling h1*/
 .middle{
   color:var(--font-color);
   font-family: 'freight-text-pro';
@@ -516,7 +529,7 @@ input:checked + .moving2:before {
   position:relative;
 }
 
-/*underscore line-- creating a line under the h1 on top, loading the animation with keyframe for both color and black and white page*/
+/*underscore line-- creating a line under the h1 on top, loading the animation with keyframe for both color and black and white page and contact*/
 .under_score, .under_score_color, .under_score_contact{
   width:4%;
   height:2px;
@@ -547,9 +560,14 @@ input:checked + .moving2:before {
 }
 /*changing the position of the under_score on the contact page*/
 .under_score_contact{
- left:180px;
+ left:200px;
 }
 
+.img-container{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 .text{
   color:var(--font-color);
   font-family:  "HelveticaNeue-Light";
@@ -557,10 +575,9 @@ input:checked + .moving2:before {
   margin-left:15%;
 }
 
+
 /*style img on mobile screen */
-.images img {
-  display:flex;
-  flex-direction: column;
+.wrap img {
   width:700px;
   max-width: 100%;
   height: auto;
@@ -588,13 +605,15 @@ input:checked + .moving2:before {
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
+  /*cover the entire height*/
   height: 100%;
   width: 100%;
+  /*start from top and left*/
   top: 0;
   left: 0;
-  background-color: var(--black-color);
-  color: var(--white-color);
+  background-color: var(--white-color);
+  color: var(--black-color);
   z-index: 1;
   overflow: auto;
   /*the opacity is set to 0 as the modal  will appear only when the user click on the image*/
@@ -608,15 +627,16 @@ to give more contrast*/
   min-height: 100vh;
   height:100%;
   display: flex;
+  /*the text will display under the image otherwise if i leave the display flex raw it will align close to the right of the img*/
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-/*styling the img inside the modal content set the width at 1090 for desktop*/
+/*styling the img inside the modal content set the width at max 900 px otherwise will go till the margin for desktop*/
 .modalImg {
-  width: 100%;
-  max-width: 1090px;
+  width: 900px;
+  max-width: 100%;
   border-radius: 5px;
   margin: 20px;
 }
@@ -624,7 +644,7 @@ to give more contrast*/
 /*styling the text under the image inside the modal */
 .modalTxt {
   margin-top: 1em;
-  color:var(--white-color);
+  color:var(--black-color);
   font-family:  "HelveticaNeue-Light";
   font-size: 150%;
 }
@@ -659,7 +679,50 @@ to give more contrast*/
 }
 
 /*------------------------styling black&White and Colour pages for desktop ---------------------*/
+@media (min-width:1025px){
+/*styling the container of the img*/
+.img-container{
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  }
 
+/*styling the div cointaing the img */
+.images{
+  /*display as grid*/
+  display: grid;
+  /*make 3 different columns of 3 equal size*/
+  grid-template-columns: repeat(3, 1fr);
+  /*with a gap of 16 px*/
+  grid-gap: 16px;
+  /*and left the margin of 16 px between the element*/
+  margin: 0 1em;
+}
+
+/*styling the img*/
+.wrap img {
+width:100%;
+cursor:pointer;
+margin: 20px 5px 0 5px;
+transition: .3s all ease;
+}
+
+.text{
+  display:none;
+}
+
+/* on hover scale the img*/
+.wrap img:hover{
+  transform:scale(0.9);
+}
+
+.modalImg{
+  width: 1400px;
+  max-width:100%;
+}
+}
+
+/*
 @media (min-width:1025px){
 .images img {
 display:flex;
@@ -682,51 +745,45 @@ margin: 50px 5px 0 5px;
 
 }
 /*-----------------------------------contact page------------*/
-/*.container_contact{
-  height:100%;
-  width:100%;
-  animation: move 0.8 ease-in 300ms;
-}
-
-@keyframe move {
-0%{
-  transform: translateY(-20px);
-  opacity:0;
-  }
-}
-100%{
-  transform: translateY(0);
-  opacity:1;
-}*/
 /*styling the form container on the left side of the page*/
 .pinch{
   color:var(--font-color);
   font-family: 'freight-text-pro';
-  font-size: 100%;
+  font-size: 200%;
   text-align: center;
+  margin-top:100px;
 }
-.form{
-background-color: rgba(91, 94, 107, 0.3) ;
-top:50px;
+
+.pinch-text{
+  color:var(--font-color);
+  font-family: 'freight-text-pro';
+  font-size: 200%;
+  text-align: justify;
+  margin:100px 50px 100px 50px;
+}
+form{
+background-color: var(--black-color) ;
 float:left;
-width:45%;
+width:49%;
 height:500px;
 }
 
+
 .vidDown{
-  padding:20px;
   float:right;
   width:50%;
+  height:500px;
+  background-color: var(--black-color);
 }
 /*style the text's form*/
 #Fname,
 #Lname,
 #Email{
   display:flex;
-  color:var(--font-color);
+  color:var(--white-color);
   font-family: 'freight-text-pro';
   font-size: 100%;
-  margin-left:20px;
+  margin-left:50px;
   resize:horizontal;
 }
 
@@ -735,10 +792,11 @@ height:500px;
 }
 #addUser{
   display:flex;
+  background-color: var(--white-color);
   color:var(--font-color);
   font-family: 'freight-text-pro';
   font-size: 100%;
-  margin-left:100px;
+  margin:20px 0 20px 120px;
   resize:horizontal;
 }
 /*styling the input form*/
@@ -753,7 +811,7 @@ height:500px;
   font-family:  "HelveticaNeue-Light";
   font-size: 100%;
   color:var(--white-color);
-  margin-left:20px;
+  margin-left:50px;
   resize:horizontal;
 }
 
@@ -767,13 +825,15 @@ height:500px;
 }
 
 textarea{
+background-color: var(--white-color);
 width:45%;
 height:200px;
 font-family: 'freight-text-pro';
+color:var(--font-color);
 font-size: 100%;
-margin-left:20px;
+margin-left:50px;
 border-radius:10px;
-border:2px solid var(--black-color);
+border:2px solid var(--white-color);
 }
 
 textarea:focus{
@@ -786,13 +846,12 @@ textarea:focus{
 .download{
   text-decoration:none;
   background-color: var(--black-color);
-  border: none;
   border-radius:10px;
   margin:4% 1% 0 38%;
   padding:10px;
   height:55px;
   color:var(--white-color);
-  box-shadow: var(--black-color)  -10px 10px 15px ;
+  box-shadow: var(--white-color)  -10px 10px 15px ;
   cursor: pointer;
   font-family:  "HelveticaNeue-Light";
   font-size: 150%;
@@ -804,8 +863,119 @@ textarea:focus{
 }
 
 .video{
-  border-radius:10px
-  top:50px;
+  border-radius:10px;
+  margin:20px 20px 20px 30px;
+
+}
+
+.container_contact{
+  animation: cont .8s ease-in 300ms;
+  margin:0px 20px 100px 20px;
+}
+
+@keyframes cont{
+ 0%{
+    transform: translateY(-20px);
+    opacity:0;
+ }
+}
+100%{
+ transform: translateX(0);
+ opacity:1;
+}
+
+}
+
+/*-----contact for desktop-------*/
+@media (min-width:1025px){
+  .video{
+    margin: 20px 20px 20px 100px;
+  }
+}
+/*thanks page-------------*/
+.grazie{
+  display:flex;
+  padding:50px;
+}
+
+.thanks{
+  color:var(--font-color);
+  font-family: 'freight-text-pro';
+  font-weight: 200;
+  font-size: 600%;
+  margin:500px 0px 0px 200px;
+  position:absolute;
+}
+
+.clap{
+  max-width:100%;
+  width:300px;
+  top:550px;
+  left:550px;
+  position:absolute;
+
+}
+
+#thank{
+  color:var(--font-color);
+  font-family: 'freight-text-pro';
+  font-weight: 600;
+  font-size: 600%;
+  top:800px;
+  left:350px;
+  position:absolute;
+}
+
+.grazie2{
+  color:var(--font-color);
+  font-family: 'freight-text-pro';
+  font-weight: 400;
+  font-size: 400%;
+  top:950px;
+  left:250px;
+  position:absolute;
+}
+
+@media (min-width:1025px){
+
+  .thanks{
+    color:var(--font-color);
+    font-family: 'freight-text-pro';
+    font-weight: 200;
+    font-size: 600%;
+    margin:350px 0px 0px 450px;
+    position:absolute;
+  }
+
+  .clap{
+    max-width:100%;
+    width:500px;
+    top:300px;
+    left:850px;
+    position:absolute;
+
+  }
+
+  #thank{
+    color:var(--font-color);
+    font-family: 'freight-text-pro';
+    font-weight: 600;
+    font-size: 600%;
+    top:635px;
+    left:600px;
+    position:absolute;
+  }
+
+  .grazie2{
+    color:var(--font-color);
+    font-family: 'freight-text-pro';
+    font-weight: 400;
+    font-size: 400%;
+    top:750px;
+    left:750px;
+    position:absolute;
+  }
+
 }
 
 /*------------------------------------footer------------------*/
@@ -813,9 +983,9 @@ textarea:focus{
    margin-top: 70px;
    border-top:4px solid var(--black-color);
    width:100%;
+   height:auto;
    display: flex;
-   justify-content:space-around;
-   align-items: center;
+   justify-content: center;
    animation: foot .8s ease-in 300ms;
  }
 
@@ -830,36 +1000,45 @@ textarea:focus{
    opacity:1;
  }
 
- .insta{
-   flex:1;
-   max-width:50px;
-   width:100%;
- }
+.insta{
+margin:20px 30px 0 0;
+}
 
+.insta:hover{
+  opacity:0.5;
+}
 
 .yt{
-  flex:1;
-  display:flex;
-  max-width:50px;
-  width:100%;
-
-
+  margin:20px 30px 0 0;
 }
 
-#name {
-  color:var(--font-color);
-  font-family:  "HelveticaNeue-Light";
-  font-size: 150%;
+.yt:hover{
+opacity: 0.5;
 }
 
+/*styling the cursor*/
 .cursor{
   width:3rem;
   height:3rem;
-  border-radius:50%;
   border:2px solid var(--black-color);
+  /*make the border round*/
+  border-radius:50%;
   background-color: var(--white-color);
   /*eliminate the pointer events to none to avoid the div to cover the layer below and be clickable*/
   pointer-events:none;
+  /*position absolute as in js we transform the top and left px*/
   position: absolute;
+  /*fixing the style as the cursor is not on the center when the mouse move*/
   transform: translate(-50%,-50%);
+  /*goes always on top*/
+  z-index:5;
+}
+
+.grow{
+  transform:scale(2);
+  background:none;
+}
+
+.filter{
+  filter: invert(100%);
 }
