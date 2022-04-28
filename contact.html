@@ -74,7 +74,7 @@
      <h2 class="pinch">A PINCH ABOUT ME</h2>
      <p class="pinch-text"> I have always been passionate about photography, but my first real approach was when on the street I found a camera with 3 lenses and from there I change my life, before then I used my grandfather's camera which had a solar panel as an exposure meter. ... stuff of other times.
       After I finished classical studies at the high school I took a course in photography and a course of DoP  at the cinecitta's in Rome, after completing my studies I started working for Sky News in Italy as an assistant, first then a cameraman for six years. With the Italian crisis I moved to great britain and I am currently a student at De montfort University, but I never stop taking pictures. </p>
-     <h2 class="pinch">CONTACT ME</h2>
+     <h2 class="pinchM">CONTACT ME</h2>
    <div class="container_contact">
     <div class="form">
      <form action="file:///Users/robertachioccia/Desktop/TECH2015_CW2/thanks_message.html">
@@ -99,7 +99,7 @@
 
   <div class="vidDown">
     <div class="video">
-      <video width="420" height="340" controls poster="img/me.jpg" >
+      <video controls poster="img/me.jpg" >
         <source src="vid/covid.mp4" type="video/mp4">
         <source src="vid/covid.ogv" type="video/ogv">
         <source src="vid/covid.webm" type="video/webm">
@@ -124,7 +124,8 @@
     </div>
 
 </footer>
-<script type="text/javascript">
+
+<script>
 
 
 //changing the hamburger menu in X when clicked
@@ -220,6 +221,7 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
        let midOp = document.querySelector('.middle');
        let undOp = document.querySelector('.under_score_contact');
        let pinOp = document.querySelector('.pinch');
+       let piOp = document.querySelector('.pinchM');
        let teOp = document.querySelector('.pinch-text');
        let conCon = document.querySelector('.container_contact');
        let form = document.querySelector('.form');
@@ -234,6 +236,7 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
        midOp.classList.toggle('opacity');
        undOp.classList.toggle('opacity');
        pinOp.classList.toggle('opacity');
+       piOp.classList.toggle('opacity');
        teOp.classList.toggle('opacity');
        conCon.classList.toggle('opacity');
        form.classList.toggle('opacity');

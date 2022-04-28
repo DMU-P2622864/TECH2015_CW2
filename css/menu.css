@@ -332,6 +332,7 @@ the img will change so first was styling the navigation-manual and copied its va
 @media (min-width:1025px){
   /* styling the menu page (navbar) desktop*/
   .navbar{
+    /*take half of the width*/
     width:50vw;
     height:100%;
     background-color: var(--white-color);
@@ -354,7 +355,7 @@ the img will change so first was styling the navigation-manual and copied its va
     position: absolute;
     top:40px;
     height:70px;
-    /*changing the radial gradient to linear but in the center is still a radial shape*/
+    /*changing its width to 50*/
     width:50vw;
     background: var(--gradient);
   }
@@ -365,7 +366,8 @@ the img will change so first was styling the navigation-manual and copied its va
 
   .nav-link{
     text-decoration: none;
-    font-size: 400%;
+    /*changing thier font style to be smaller*/
+    font-size: 200%;
     color:var(--font-color);
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -375,9 +377,8 @@ the img will change so first was styling the navigation-manual and copied its va
 
   .slide p{
     color: var(--white-color);
-    /*
-    color:white;*/
     position:absolute;
+    /*changing its position otherwise it would be on top of h1*/
     top:65%;
     left:65%;
     transform: translate(-50%,-50%);
@@ -386,6 +387,7 @@ the img will change so first was styling the navigation-manual and copied its va
     font-size:150%;
   }
 
+/*when the navbar is toggle on the rest of the body change its opacity */
 .opacity{
    opacity:0.1;
    transition: opacity .3s 200ms ease-in;
@@ -720,33 +722,11 @@ transition: .3s all ease;
   width: 1400px;
   max-width:100%;
 }
-}
-
-/*
-@media (min-width:1025px){
-.images img {
-display:flex;
-width:100%;
-min-width:300px;
-margin: 50px 5px 0 5px;
-}
-
-.images{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1em;
-  margin: 0 1em;
-}
-
-.text{
-  margin:20px 0 0 20px;
-  padding:0;
-}
 
 }
 /*-----------------------------------contact page------------*/
 /*styling the form container on the left side of the page*/
-.pinch{
+.pinch, .pinchM{
   color:var(--font-color);
   font-family: 'freight-text-pro';
   font-size: 200%;
@@ -766,8 +746,8 @@ background-color: var(--black-color) ;
 float:left;
 width:49%;
 height:500px;
+top:50px;
 }
-
 
 .vidDown{
   float:right;
@@ -847,7 +827,7 @@ textarea:focus{
   text-decoration:none;
   background-color: var(--black-color);
   border-radius:10px;
-  margin:4% 1% 0 38%;
+  margin:4% 1% 0 25%;
   padding:10px;
   height:55px;
   color:var(--white-color);
@@ -862,9 +842,12 @@ textarea:focus{
   color:var(--black-color);
 }
 
-.video{
+video{
+  max-width:100%;
+  width:420px;
+  max-height:340px;
   border-radius:10px;
-  margin:20px 20px 20px 30px;
+  margin:100px 20px 20px 20px;
 
 }
 
@@ -888,7 +871,10 @@ textarea:focus{
 
 /*-----contact for desktop-------*/
 @media (min-width:1025px){
-  .video{
+  video{
+    max-width: 100%;
+    width:600px;
+    height:300px;
     margin: 20px 20px 20px 100px;
   }
 }
