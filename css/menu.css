@@ -1002,7 +1002,8 @@ margin:20px 30px 0 0;
 opacity: 0.5;
 }
 
-/*styling the cursor*/
+/*styling the cursor only for desktop*/
+@media (min-width:1025px){
 .cursor{
   width:3rem;
   height:3rem;
@@ -1028,3 +1029,5 @@ opacity: 0.5;
 .filter{
   filter: invert(100%);
 }
+}
+/*-----------end css----*/
