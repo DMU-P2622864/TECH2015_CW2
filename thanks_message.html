@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://use.typekit.net/fie2hjm.css">
   </head>
 
-<body>
+<!--when the body load run the function playsound for safari user, so they can listen to the audio clapping hands-->
+<body  onload="playSound()">
   <div class="cursor"></div>
   <div class="container">
      <div class="grad" >
@@ -20,7 +21,7 @@
        </div>
      </div>
     </div>
-     <!-- icon of the hamburger-->
+
      <nav class="navbar">
        <div class="grad2" >
          <div class="toggle_menu2">
@@ -70,7 +71,8 @@
      <h1 class="thanks">Thanks <br><br><br></h1>
      <span id="thank"></span>
      <h2 class="grazie2">for visit the website</h2>
-      <img onclick="playSound()"class="clap"src="img/clap.gif" alt="clap gif">
+      <!--onclick as in chrome  default the audio is muted so the user must interact with page -->
+      <img onclick="playSound2()"class="clap"src="img/clap.gif" alt="clap gif" >
    </div>
 
 
@@ -155,11 +157,18 @@
 
           window.addEventListener('mousemove', cursor);
 
-          //thanks page clap audio autoplay.
+         //for safari user onload play the audio
           function playSound() {
             let audio = document.getElementById('audio');
             audio.play();
           }
+
+          //thanks page for chrome user if the user click on the gif the audio will play.
+          function playSound2() {
+            let audio = document.getElementById('audio');
+            audio.play();
+          }
+
 
 
 
@@ -186,6 +195,7 @@
 
              db.put(user);
 
+
              function changeOpacity4() {
                let loOp = document.getElementById('logo');
                let conOp = document.querySelector('.container');
@@ -197,9 +207,8 @@
                conOp.classList.toggle('opacity');
                swiOP.classList.toggle('opacity-switch');
                graOp.classList.toggle('opacity');
-
-
              };
+
     </script>
   </body>
 </html>

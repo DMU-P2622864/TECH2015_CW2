@@ -225,11 +225,11 @@ input{
   color:white;*/
   position:absolute;
   top:55%;
-  left:50%;
+  left:45%;
   transform: translate(-50%,-50%);
   font-family: 'freight-text-pro';
   font-weight: 200;
-  font-size: 400%;
+  font-size: 470%;
 }
 
 .slide p{
@@ -237,12 +237,12 @@ input{
   /*
   color:white;*/
   position:absolute;
-  top:60%;
-  left:65%;
+  top:61%;
+  left:49%;
   transform: translate(-50%,-50%);
   font-family:  "HelveticaNeue-Light";
   font-weight: 200;
-  font-size:150%;
+  font-size:200%;
 }
 
 /*css for manual slide navigation
@@ -587,8 +587,8 @@ input:checked + .moving2:before {
   border-radius:10px;
   box-shadow: var(--black-color)  -20px 20px 15px ;
   cursor:pointer;
-  transition: .3s all ease;
-  animation: img-load .8s ease-in 300ms;
+  transition: .4s all ease;
+  animation: img-load .9s ease-in;
 }
 
 
@@ -725,7 +725,7 @@ transition: .3s all ease;
 
 }
 /*-----------------------------------contact page------------*/
-/*styling the form container on the left side of the page*/
+/*styling the h2 of the contact page 2 title*/
 .pinch, .pinchM{
   color:var(--font-color);
   font-family: 'freight-text-pro';
@@ -733,7 +733,7 @@ transition: .3s all ease;
   text-align: center;
   margin-top:100px;
 }
-
+/*styling the p text*/
 .pinch-text{
   color:var(--font-color);
   font-family: 'freight-text-pro';
@@ -741,6 +741,7 @@ transition: .3s all ease;
   text-align: justify;
   margin:100px 50px 100px 50px;
 }
+/*styling the form container*/
 form{
 background-color: var(--black-color) ;
 float:left;
@@ -749,6 +750,7 @@ height:500px;
 top:50px;
 }
 
+/*styling the video and download button container*/
 .vidDown{
   float:right;
   width:50%;
@@ -819,7 +821,6 @@ border:2px solid var(--white-color);
 textarea:focus{
   color:var(--white-color);
   outline: none;
-  background-color: rgba(91, 94, 107, 0.8) ;
   border:2px solid rgba(176, 176, 176,0.3);
 }
 
@@ -851,21 +852,21 @@ video{
 
 }
 
+/*styling the container of the form video and download bottom*/
 .container_contact{
-  animation: cont .8s ease-in 300ms;
-  margin:0px 20px 100px 20px;
+  animation: cont .8s ease-in;
+  margin:0px 20px 0px 20px;
 }
 
 @keyframes cont{
- 0%{
-    transform: translateY(-20px);
-    opacity:0;
- }
+  0%{
+     transform: translateY(-20px);
+     opacity:0;
+  }
 }
 100%{
- transform: translateX(0);
- opacity:1;
-}
+  transform: translateY(0);
+  opacity:1;
 
 }
 
@@ -879,11 +880,12 @@ video{
   }
 }
 /*thanks page-------------*/
+/*styling the container of h1, h2 and img*/
 .grazie{
   display:flex;
   padding:50px;
 }
-
+/*h1*/
 .thanks{
   color:var(--font-color);
   font-family: 'freight-text-pro';
@@ -892,7 +894,7 @@ video{
   margin:500px 0px 0px 200px;
   position:absolute;
 }
-
+/*gif treat as img*/
 .clap{
   max-width:100%;
   width:300px;
@@ -901,7 +903,7 @@ video{
   position:absolute;
 
 }
-
+/*span that display the name js*/
 #thank{
   color:var(--font-color);
   font-family: 'freight-text-pro';
@@ -911,7 +913,7 @@ video{
   left:350px;
   position:absolute;
 }
-
+/*h2*/
 .grazie2{
   color:var(--font-color);
   font-family: 'freight-text-pro';
@@ -922,6 +924,7 @@ video{
   position:absolute;
 }
 
+/*----restyling thanks  page for desktop*/
 @media (min-width:1025px){
 
   .thanks{
@@ -965,29 +968,30 @@ video{
 }
 
 /*------------------------------------footer------------------*/
+/*using flexbox ofr footer align item center flex*/
  footer{
-   margin-top: 70px;
+   margin: 70px 0 20px 0;
    border-top:4px solid var(--black-color);
    width:100%;
    height:auto;
    display: flex;
    justify-content: center;
-   animation: foot .8s ease-in 300ms;
+   animation: foot .8s ease-in;
  }
-
+/*animation from top to bottom*/
  @keyframes foot{
    0%{
-      transform: translateY(20px);
+      transform: translateY(-10px);
       opacity:0;
    }
  }
  100%{
-   transform: translateX(0);
+   transform: translateY(0);
    opacity:1;
  }
 
 .insta{
-margin:20px 30px 0 0;
+margin:20px 30px 20px 0;
 }
 
 .insta:hover{
@@ -995,7 +999,7 @@ margin:20px 30px 0 0;
 }
 
 .yt{
-  margin:20px 30px 0 0;
+  margin:20px 0 20px 20px;
 }
 
 .yt:hover{
@@ -1021,11 +1025,13 @@ opacity: 0.5;
   z-index:5;
 }
 
+/*see js for this class list on mouse over the link the background became trasparent so user can see what to click and the border scale up*/
 .grow{
   transform:scale(2);
   background:none;
 }
 
+/*invert filter when mouse hover the images so it became black or white*/
 .filter{
   filter: invert(100%);
 }

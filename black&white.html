@@ -9,6 +9,7 @@
 
 <body>
   <div class="cursor"></div>
+  <!--gradient and toggle switch for the main page-->
    <div class="container">
      <div class="grad" >
        <div class="toggle_menu">
@@ -20,8 +21,8 @@
      </div>
    </div>
 
-     <!-- icon of the hamburger-->
 
+     <!--gradient and toggle switch for the nav page-->
      <nav class="navbar">
        <div class="grad2" >
          <div class="toggle_menu2">
@@ -72,6 +73,7 @@
  <!--creatin a container for all the img and text and the modal content following https://www.youtube.com/watch?v=CojYeBTNgL8-->
     <div class="img-container">
       <div class="images">
+           <!--creating a wrap element for text and image this is true only for mobile version for desktop the user will reaad the alt text on the modal content-->
            <div class="wrap">
              <img class="gall"src="img/1g.jpg" alt="Hand shaking with Prince Charles, Leicester-England"/>
               <p class="text">Leicester-England</p>
@@ -107,6 +109,7 @@
      </div>
    </div>
 
+<!--creating link for external website-->
   <footer id="foot">
       <div class="insta">
         <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
@@ -218,6 +221,7 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
         });
       });
 
+
       //custom the cursor following the tutorial online https://www.youtube.com/watch?v=TpwpAYi-p2w&t=303s
       let mouseCursor = document.querySelector(".cursor ");
       //when the mouse hover on top of the gradient,logo and hamb menu it change the style so store the link inside a variable
@@ -239,11 +243,11 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
       grad.addEventListener("mouseover",()=>{
         mouseCursor.classList.add('grow');
       });
-      //when the mouse leave  the gradient remove the grow style of css
+      //when the mouse leave  the gradient remove the grow style of css and so on for the element that must change when the cursor goe over
       grad.addEventListener("mouseleave",()=>{
         mouseCursor.classList.remove('grow');
       });
-
+      //logo
       logo.addEventListener("mouseover",()=>{
         mouseCursor.classList.add('grow');
       });
@@ -251,11 +255,11 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
       logo.addEventListener("mouseleave",()=>{
         mouseCursor.classList.remove('grow');
       });
-
+      //hamb icon
       hamb.addEventListener("mouseover",()=>{
         mouseCursor.classList.add('grow');
       });
-      //when the mouse leave  the gradient remove the grow style of css
+
       hamb.addEventListener("mouseleave",()=>{
         mouseCursor.classList.remove('grow');
       });

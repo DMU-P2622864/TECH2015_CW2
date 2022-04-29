@@ -5,6 +5,7 @@
     <title>Roberta Chioccia</title>
     <link href="css/menu.css"  rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.typekit.net/fie2hjm.css">
+    <!--library icon for the download w3school tutorial-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
@@ -72,11 +73,10 @@
    <span class="under_score_contact"></span>
 
      <h2 class="pinch">A PINCH ABOUT ME</h2>
-     <p class="pinch-text"> I've always been interested in photography, but my first real introduction came when I found a camera with three lenses on the street and it changed my life;
-       before that, I used my grandfather's camera, which had a solar panel as an exposure metre.
-      After finishing my classical studies in high school, I took a photography and DoP course at the Cinecitta's in Rome, and after finishing my studies, I began working for Sky News in Italy as an assistant,
-      then as a cameraman for six years. With the Italian crisis, I moved to the United Kingdom and am now a student at De Montfort University, but I never stop taking photographs. </p>
+     <p class="pinch-text"> I've always been interested in photography, but my first real introduction came when I found a camera with three lenses on the street and it changed my life. Before that, I used my grandfather's camera, which had a solar panel as an exposure metre...old style stuff :)
+     After finishing my classical studies in high school, I took a photography and DoP course at the Cinecitta's in Rome, and after finishing my studies, I began working for Sky News in Italy as an assistant, then as a cameraman for six years. To challenge myself in a different  content, I moved to the United Kingdom and am now a student at De Montfort University, but I never stop taking photographs. </p>
      <h2 class="pinchM">CONTACT ME</h2>
+     
    <div class="container_contact">
     <div class="form">
      <form action="thanks_message.html">
@@ -102,15 +102,17 @@
   <div class="vidDown">
     <div class="video">
       <video controls poster="img/me.jpg" >
-        <source src="vid/covid.mp4" type="video/mp4">
+        <source src="vid/covid.mp4" type="video/mp4"> <!--the browser only download the video that is capable to play when the type attribute is specified-->
         <source src="vid/covid.ogv" type="video/ogv">
         <source src="vid/covid.webm" type="video/webm">
         <p>Your browser cannot play the provided video file.Click <a href="vid/covid.mp4">HERE</a></p>
       </video>
     </div>
 
+    <!-- crearting a button with an anchor element to download when click the button js will run cameraSound function basically its like an audio alert but with the sound of camera click supposed that would be nicer -->
     <div class="download_button">
-      <a href="img/CV.jpg" download="Roberta Chioccia's C.V."><button class="download" onclick="cameraSound()"><i class="fa fa-download"></i> Download my C.V.</button></a>
+      <!--download href === img.cv jpg -->
+      <a href="img/CV.jpg" download="Roberta Chioccia's C.V."><button class="download" onclick="cameraSound()"><i class="fa fa-download"></i> Download my C.V.</button></a> <!--inside the anchor element thereis a button with an icon that display the download-->
     </div>
   </div>
  </div>
