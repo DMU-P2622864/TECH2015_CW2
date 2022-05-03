@@ -9,7 +9,7 @@
   </head>
 
 <!--when the body load run the function playsound for safari user, so they can listen to the audio clapping hands-->
-<body  onload="playSound()">
+<body>
   <div class="cursor"></div>
   <div class="container">
      <div class="grad" >
@@ -63,16 +63,16 @@
   <!--start logo-->
    <div id="logo">
      <a class="home"href="index.html">
-     <img class="logo"src="icon/logo.png" alt="logo of the website Ro" height="100">
+     <img class="logo"src="icon/logo.png" alt="logo of the website Ro">
      </a>
    </div>
 
    <div class="grazie">
-     <h1 class="thanks">Thanks <br><br><br></h1>
+    <h1 class="thanks">Thanks</h1>
      <span id="thank"></span>
-     <h2 class="grazie2">for visit the website</h2>
-      <!--onclick as in chrome  default the audio is muted so the user must interact with page -->
-      <img onclick="playSound2()"class="clap"src="img/clap.gif" alt="clap gif" >
+      <h2 class="grazie2">for visit the website</h2>
+      <!--onclick as in chrome  default the audio is muted so the user must interact with page
+      <img class="clap"src="img/clap.gif" alt="clap gif" >-->
    </div>
 
 
@@ -156,20 +156,6 @@
           }
 
           window.addEventListener('mousemove', cursor);
-
-         //for safari user onload play the audio
-          function playSound() {
-            let audio = document.getElementById('audio');
-            audio.play();
-          }
-
-          //thanks page for chrome user if the user click on the gif the audio will play.
-          function playSound2() {
-            let audio = document.getElementById('audio');
-            audio.play();
-          }
-
-
 
 
           //displaying the name of the user on the thank page and saving the data

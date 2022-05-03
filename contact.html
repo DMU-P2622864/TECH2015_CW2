@@ -65,7 +65,7 @@
   <!--start logo-->
    <div id="logo">
      <a class="home"href="index.html">
-     <img class="logo"src="icon/logo.png" alt="logo of the website Ro" height="100">
+     <img class="logo"src="icon/logo.png" alt="logo of the website Ro">
      </a>
    </div>
 
@@ -76,30 +76,29 @@
      <p class="pinch-text"> I've always been interested in photography, but my first real introduction came when I found a camera with three lenses on the street and it changed my life. Before that, I used my grandfather's camera, which had a solar panel as an exposure metre...old style stuff :)
      After finishing my classical studies in high school, I took a photography and DoP course at the Cinecitta's in Rome, and after finishing my studies, I began working for Sky News in Italy as an assistant, then as a cameraman for six years. To challenge myself in a different  content, I moved to the United Kingdom and am now a student at De Montfort University, but I never stop taking photographs. </p>
      <h2 class="pinchM">CONTACT ME</h2>
-     
+
    <div class="container_contact">
     <div class="form">
-     <form action="thanks_message.html">
+    <form action="thanks_message.html">
+      <h2 class="con">Contact me</h2>
       <label id="Fname"for="fname">First name:</label>
-      <input type="text" id="fname" name="fname" value=""><br><br>
+      <input type="text" id="fname" name="fname" value=""required><br><br>
       <label id="Lname"for="lname">Last name:</label>
-      <input type="text" id="lname" name="lname" value=""><br><br>
-      <label id="Email"for="email">Your email:</label>
-      <input type="email" id="email" name="email" value=""><br><br><br>
+      <input type="text" id="lname" name="lname" value="" required><br><br>
+      <label id="Email"for="email" >Your email:</label>
+      <input type="email" id="email" name="email" value="" required><br><br><br>
 
-      <textarea name="message" rows="10" cols="30">
-      Enter your message!
+      <label id="Sub"for="Subject">Subject:</label>
+      <textarea name="message" rows="10" cols="30" required>
+       your message!
       </textarea>
       <input type="submit" value="Submit" id="addUser">
-      <audio id="audio2" style="display:none">
-        <source src="aud/camera.mp3" type="audio/mpeg">
-        <source src="aud/camera.ogg" type="audio/ogg">
-        <source src="aud/camera.wav" type="audio/wav">
-      </audio>
     </form>
   </div>
 
+
   <div class="vidDown">
+    <h2 class="con">Watch my showreel</h2>
     <div class="video">
       <video controls poster="img/me.jpg" >
         <source src="vid/covid.mp4" type="video/mp4"> <!--the browser only download the video that is capable to play when the type attribute is specified-->
@@ -112,22 +111,30 @@
     <!-- crearting a button with an anchor element to download when click the button js will run cameraSound function basically its like an audio alert but with the sound of camera click supposed that would be nicer -->
     <div class="download_button">
       <!--download href === img.cv jpg -->
-      <a href="img/CV.jpg" download="Roberta Chioccia's C.V."><button class="download" onclick="cameraSound()"><i class="fa fa-download"></i> Download my C.V.</button></a> <!--inside the anchor element thereis a button with an icon that display the download-->
+      <a href="img/Roberta_Chioccia_CV.jpg" download="Roberta_Chioccia_CV.jpg"><button class="download" onclick="cameraSound()"><i class="fa fa-download"></i> Download my C.V.</button></a>
+      <audio id="audio2" style="display:none">
+        <source src="aud/camera.mp3" type="audio/mpeg">
+        <source src="aud/camera.ogg" type="audio/ogg">
+        <source src="aud/camera.wav" type="audio/wav">
+      </audio><!--inside the anchor element thereis a button with an icon that display the download-->
     </div>
   </div>
  </div>
 </section>
 
-<footer id="foot">
-    <div class="insta">
-      <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
+<!--creating link for external website-->
+  <footer id="f">
+    <div class="foot">
+      <div class="insta">
+        <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
+      </div>
+      <div class="yt">
+        <a href="https://www.youtube.com/channel/UCaKD4g8lBkvBKTnPiHrlIeQ"><img src="icon/yt.png" alt="youtube"></a>
+      </div>
     </div>
+      <p id="copy"> <img src="icon/copyright.png" alt="copyright symbol">2022, RCA. All copyright are reserved</p>
+  </footer>
 
-    <div class="yt">
-      <a href="https://www.youtube.com/channel/UCaKD4g8lBkvBKTnPiHrlIeQ"><img src="icon/yt.png" alt="youtube"></a>
-    </div>
-
-</footer>
 
 <script>
 
@@ -198,24 +205,48 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
           }
          };
 
-     //custom the cursor
-     let mouseCursor = document.querySelector(".cursor ");
-     //creating a function that has access to the event (e) which reveals the coordinate of where the mouse is
-     function cursor(e) {
-     // so take the var and style the top at the event corresponding on the location of the Y and X plus px === like css
-       mouseCursor.style.top = e.pageY + 'px';
-       mouseCursor.style.left = e.pageX + 'px';
-     }
 
-     window.addEventListener('mousemove', cursor);
+               //custom the cursor following the tutorial online https://www.youtube.com/watch?v=TpwpAYi-p2w&t=303s
+               let mouseCursor = document.querySelector(".cursor ");
+               //when the mouse hover on top of the gradient,logo and hamb menu it change the style so store the link inside a variable
+               let grad = document.querySelector('.grad');
+               let logo = document.getElementById('logo');
+               let hamb = document.querySelector('.hamburger-menu');
+               //when the mouse hover on top of the images it change the style so store the link inside a variable
+               let allImg = document.querySelectorAll('.gall');
+               //creating a function that has access to the event (e) which reveals the coordinate of where the mouse is
+               function cursor(e) {
+               // so take the var and style the top at the event corresponding on the location of the Y and X plus px === like css
+                 mouseCursor.style.top = e.pageY + 'px';
+                 mouseCursor.style.left = e.pageX + 'px';
+               }
+               // add an event addEventListener to the window if the mouse move run the function cursor
+               window.addEventListener('mousemove', cursor);
 
-     // play the sound of camera shutter when the user click on submit---
-     function cameraSound() {
-       //take the audio and assign a var--
-       let click = document.getElementById('audio2');
-       //let the var play
-       click.play();
-     }
+               //when the mouse over on top of the gradient add the grow style of css
+               grad.addEventListener("mouseover",()=>{
+                 mouseCursor.classList.add('grow');
+               });
+               //when the mouse leave  the gradient remove the grow style of css and so on for the element that must change when the cursor goe over
+               grad.addEventListener("mouseleave",()=>{
+                 mouseCursor.classList.remove('grow');
+               });
+               //logo
+               logo.addEventListener("mouseover",()=>{
+                 mouseCursor.classList.add('grow');
+               });
+
+               logo.addEventListener("mouseleave",()=>{
+                 mouseCursor.classList.remove('grow');
+               });
+               //hamb icon
+               hamb.addEventListener("mouseover",()=>{
+                 mouseCursor.classList.add('grow');
+               });
+
+               hamb.addEventListener("mouseleave",()=>{
+                 mouseCursor.classList.remove('grow');
+               });
 
     //changing the opacity for desktop---
      function changeOpacity3() {
@@ -232,7 +263,7 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
        let vidDown = document.querySelector('.vidDown');
        let video = document.querySelector('.video');
        let doOp = document.querySelector('.download_button');
-       let foot  = document.getElementById('foot');
+       let foot  = document.getElementById('f');
 
        loOp.classList.toggle('opacity');
        conOp.classList.toggle('opacity');

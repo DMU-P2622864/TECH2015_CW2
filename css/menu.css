@@ -46,7 +46,7 @@ body{
   display: flex;
   position: absolute;
   top:40px;
-  height:70px;
+  height:50px;
   /*changing the radial gradient to linear but in the center is still a radial shape*/
   width:100vw;
   background: var(--gradient);
@@ -56,7 +56,7 @@ body{
   display: flex;
   position: absolute;
   top:40px;
-  height:70px;
+  height:50px;
   /*changing the radial gradient to linear but in the center is still a radial shape*/
   width:100vw;
   background: var(--gradient);
@@ -91,8 +91,8 @@ body{
 
 /*styling the hamburger menu*/
 .hamburger-menu{
-  width:45px;
-  height:40px;
+  width:35px;
+  height:30px;
   /*position fixed on top right*/
   position:fixed;
   top:50px;
@@ -120,7 +120,7 @@ body{
 /*transforming the line when checked in X by rotating the z and translate it so the lines look like an X*/
 .change .line-1{
   /* instead to rotate only for 45 degrees rotate 360 + 45 = 405 so it does a whole rotation*/
-  transform: rotateZ(-405deg) translate(-10px, 8px);
+  transform: rotateZ(-405deg) translate(-8px, 6px);
 }
 
 .change .line-2{
@@ -129,7 +129,7 @@ body{
 
 .change .line-3{
   /*rotating line for one whole rotation by 360+45 degrees*/
-  transform: rotateZ(405deg) translate(-10px, -8px);
+  transform: rotateZ(405deg) translate(-8px, -6px);
 }
 
 /*get rid of bullets and create space using margin*/
@@ -141,7 +141,7 @@ body{
 /*get rid of the underlining and styling the text on menu page */
 .nav-link{
   text-decoration: none;
-  font-size: 400%;
+  font-size: 300%;
   color:var(--font-color);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -196,7 +196,7 @@ body{
 #logo{
   position:absolute;
   top:25px;
-  height:50px;
+  left:25px;
   /*it remains on top of other object*/
   z-index: 1;
 }
@@ -212,6 +212,7 @@ div.slide img{
   width:100vw;
   height: 100vh;
   object-fit: cover;
+
 }
 
 input{
@@ -229,7 +230,7 @@ input{
   transform: translate(-50%,-50%);
   font-family: 'freight-text-pro';
   font-weight: 200;
-  font-size: 470%;
+  font-size: 400%;
 }
 
 .slide p{
@@ -237,12 +238,12 @@ input{
   /*
   color:white;*/
   position:absolute;
-  top:61%;
+  top:60%;
   left:49%;
   transform: translate(-50%,-50%);
   font-family:  "HelveticaNeue-Light";
   font-weight: 200;
-  font-size:200%;
+  font-size:300%;
 }
 
 /*css for manual slide navigation
@@ -259,7 +260,7 @@ the img will change so first was styling the navigation-manual and copied its va
 
 /*creating the button since the display input is none we must make a button for the user to click*/
 #manual-btn{
- border: 4px solid red;
+ border: 4px solid var(--black-color);
  padding:5px;
  border-radius: 10px;
  cursor: pointer;
@@ -272,7 +273,7 @@ the img will change so first was styling the navigation-manual and copied its va
 }
 
 #manual-btn:hover{
-  background:red;
+  background:var(--white-color);
 }
 
 
@@ -303,7 +304,7 @@ the img will change so first was styling the navigation-manual and copied its va
 }
 
 .navigation-auto div{
-  border:4px solid red;
+  border:4px solid var(--white-color);
   padding:5px;
   border-radius: 10px;
   transition: .6s;
@@ -313,21 +314,49 @@ the img will change so first was styling the navigation-manual and copied its va
 }
 
 #radio1:checked~ .navigation-auto .auto-btn1{
-  background: red;
+  background:var(--white-color);
 }
 
 #radio2:checked~.navigation-auto .auto-btn2{
-  background: red;
+  background: var(--white-color);
 }
 
 #radio3:checked~.navigation-auto .auto-btn3{
-  background: red;
+  background: var(--white-color);
 }
 
 #radio4:checked~.navigation-auto .auto-btn4{
-  background: red;
+  background: var(--white-color);
 }
+/*ipad--------------*/
+@media  (min-width:768px){
+  .slide h1{
+    color: var(--white-color);
+    /*
+    color:white;*/
+    position:absolute;
+    top:55%;
+    left:45%;
+    transform: translate(-50%,-50%);
+    font-family: 'freight-text-pro';
+    font-weight: 200;
+    font-size: 400%;
+  }
 
+  .slide p{
+    color: var(--white-color);
+    /*
+    color:white;*/
+    position:absolute;
+    top:60%;
+    left:45%;
+    transform: translate(-50%,-50%);
+    font-family:  "HelveticaNeue-Light";
+    font-weight: 200;
+    font-size:200%;
+  }
+
+}
 /*--------------------------------------homepage for desktop-----------------------------------------*/
 @media (min-width:1025px){
   /* styling the menu page (navbar) desktop*/
@@ -354,7 +383,7 @@ the img will change so first was styling the navigation-manual and copied its va
     display: flex;
     position: absolute;
     top:40px;
-    height:70px;
+    height:50px;
     /*changing its width to 50*/
     width:50vw;
     background: var(--gradient);
@@ -375,6 +404,19 @@ the img will change so first was styling the navigation-manual and copied its va
     padding: 3px 0px;
   }
 
+  .slide h1{
+    color: var(--white-color);
+    /*
+    color:white;*/
+    position:absolute;
+    top:55%;
+    left:45%;
+    transform: translate(-50%,-50%);
+    font-family: 'freight-text-pro';
+    font-weight: 200;
+    font-size: 400%;
+  }
+
   .slide p{
     color: var(--white-color);
     position:absolute;
@@ -384,7 +426,7 @@ the img will change so first was styling the navigation-manual and copied its va
     transform: translate(-50%,-50%);
     font-family:  "HelveticaNeue-Light";
     font-weight: 200;
-    font-size:150%;
+    font-size:200%;
   }
 
 /*when the navbar is toggle on the rest of the body change its opacity */
@@ -404,19 +446,19 @@ the img will change so first was styling the navigation-manual and copied its va
 .toggle_menu{
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 55%;
+  width: 50px;
+  height: 30px;
   left:45%;
-  top:25%;
+  top:20%;
 }
 
 .toggle_menu2{
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 55%;
+  width: 50px;
+  height: 30px;
   left:45%;
-  top:25%;
+  top:20%;
 }
 /*styling switch toggle */
 #checkbox2 {
@@ -459,8 +501,8 @@ at his origin*/
 .moving:before {
   position: absolute;
   content: "";
-  height: 28px;
-  width: 24px;
+  height: 20px;
+  width: 16px;
   left: 4px;
   bottom: 5px;
   /*background-color: white;*/
@@ -471,8 +513,8 @@ at his origin*/
 .moving2:before {
   position: absolute;
   content: "";
-  height: 28px;
-  width: 24px;
+  height: 20px;
+  width: 16px;
   left: 4px;
   bottom: 5px;
   /*background-color: white;*/
@@ -583,7 +625,7 @@ input:checked + .moving2:before {
   width:700px;
   max-width: 100%;
   height: auto;
-  margin: 3% 0 0 15%;
+  margin: 10% 0 0 15%;
   border-radius:10px;
   box-shadow: var(--black-color)  -20px 20px 15px ;
   cursor:pointer;
@@ -704,7 +746,9 @@ to give more contrast*/
 /*styling the img*/
 .wrap img {
 width:100%;
+height: 100%;
 cursor:pointer;
+box-shadow: var(--black-color)  -10px 10px 15px ;
 margin: 20px 5px 0 5px;
 transition: .3s all ease;
 }
@@ -719,7 +763,7 @@ transition: .3s all ease;
 }
 
 .modalImg{
-  width: 1400px;
+  width: 1090px;
   max-width:100%;
 }
 
@@ -741,120 +785,12 @@ transition: .3s all ease;
   text-align: justify;
   margin:100px 50px 100px 50px;
 }
-/*styling the form container*/
-form{
-background-color: var(--black-color) ;
-float:left;
-width:49%;
-height:500px;
-top:50px;
-}
-
-/*styling the video and download button container*/
-.vidDown{
-  float:right;
-  width:50%;
-  height:500px;
-  background-color: var(--black-color);
-}
-/*style the text's form*/
-#Fname,
-#Lname,
-#Email{
-  display:flex;
-  color:var(--white-color);
-  font-family: 'freight-text-pro';
-  font-size: 100%;
-  margin-left:50px;
-  resize:horizontal;
-}
-
-#Fname{
-  top:50px;
-}
-#addUser{
-  display:flex;
-  background-color: var(--white-color);
-  color:var(--font-color);
-  font-family: 'freight-text-pro';
-  font-size: 100%;
-  margin:20px 0 20px 120px;
-  resize:horizontal;
-}
-/*styling the input form*/
-#fname,
-#lname,
-#email{
-  background-color: var(--white-color);
-  display:flex;
-  border:2px solid var(--black-color);
-  border-radius:10px;
-  width:22%;
-  font-family:  "HelveticaNeue-Light";
-  font-size: 100%;
-  color:var(--black-color);
-  margin-left:50px;
-  resize:horizontal;
-}
-
-/*styling the input form on focus with the outline none to avoid the backgroundcolor blue*/
-#fname:focus,
-#lname:focus,
-#email:focus{
-  outline: none;
-  background-color: rgba(91, 94, 107, 0.8) ;
-  color:var(--black-color);
-  border:2px solid rgba(176, 176, 176,0.3);
-}
-
-textarea{
-background-color: var(--white-color);
-width:45%;
-height:200px;
-font-family: 'freight-text-pro';
-color:var(--black-color);
-font-size: 100%;
-margin-left:50px;
-border-radius:10px;
-border:2px solid var(--white-color);
-}
-
-textarea:focus{
-  color:var(--black-color);
-  outline: none;
-  border:2px solid rgba(176, 176, 176,0.3);
-}
-
-.download{
-  text-decoration:none;
-  background-color: var(--black-color);
-  border-radius:10px;
-  margin:4% 1% 0 25%;
-  padding:10px;
-  height:55px;
-  color:var(--white-color);
-  box-shadow: var(--white-color)  -10px 10px 15px ;
-  cursor: pointer;
-  font-family:  "HelveticaNeue-Light";
-  font-size: 150%;
-}
-
-.download:hover{
-  background-color:var(--white-color);
-  color:var(--black-color);
-}
-
-video{
-  max-width:100%;
-  width:420px;
-  max-height:340px;
-  border-radius:10px;
-  margin:100px 20px 20px 20px;
-
-}
 
 /*styling the container of the form video and download bottom*/
 .container_contact{
+  height:700px;
+  display: flex;
+  justify-content: space-around;
   animation: cont .8s ease-in;
   margin:0px 20px 0px 20px;
 }
@@ -871,20 +807,137 @@ video{
 
 }
 }
-/*-----contact for desktop-------*/
-@media (min-width:1025px){
-  video{
-    max-width: 100%;
-    width:600px;
-    height:300px;
-    margin: 20px 20px 20px 100px;
-  }
+.con{
+  color:var(--white-color);
+  font-family: 'freight-text-pro';
+  font-size: 150%;
+  text-align: center;
+
 }
+/*styling the form container*/
+.form{
+display: flex;
+flex:1;
+background-color: var(--black-color) ;
+top:50px;
+margin-right: 20px;
+}
+
+/*styling the video and download button container*/
+.vidDown{
+  display: column;
+  flex:1;
+  margin-left: 20px;
+  background-color: var(--black-color);
+}
+/*style the text's form*/
+#Fname,
+#Lname,
+#Email,
+#Sub{
+  display:flex;
+  margin-left: 20px;
+  color:var(--white-color);
+  font-family: 'freight-text-pro';
+  font-size: 100%;
+  resize:horizontal;
+}
+
+#Fname{
+  top:50px;
+}
+#addUser{
+  display: flex;
+  margin-top: 50px;
+  margin-left: 20px;
+  background-color: var(--white-color);
+  color:var(--font-color);
+  font-family: 'freight-text-pro';
+  font-size: 100%;
+  resize:horizontal;
+}
+/*styling the input form*/
+#fname,
+#lname,
+#email{
+  display:flex;
+  margin-left: 20px;
+  background-color: var(--white-color);
+  border:2px solid var(--black-color);
+  border-radius:10px;
+  width:20%;
+  font-family:  "HelveticaNeue-Light";
+  font-size: 100%;
+  color:var(--black-color);
+  margin-left:20px;
+  resize:horizontal;
+}
+
+/*styling the input form on focus with the outline none to avoid the backgroundcolor blue*/
+#fname:focus,
+#lname:focus,
+#email:focus{
+  outline: none;
+  background-color: rgba(91, 94, 107, 0.8) ;
+  color:var(--black-color);
+  border:2px solid rgba(176, 176, 176,0.3);
+}
+
+textarea{
+background-color: var(--white-color);
+width:200px;
+height:150px;
+font-family: 'freight-text-pro';
+color:var(--black-color);
+font-size: 100%;
+margin-left:20px;
+border-radius:10px;
+border:2px solid var(--white-color);
+}
+
+textarea:focus{
+  color:var(--black-color);
+  outline: none;
+  border:2px solid rgba(176, 176, 176,0.3);
+}
+
+.download{
+  text-decoration:none;
+  background-color: var(--black-color);
+  border-radius:10px;
+  margin-left: 20px;
+  margin-top:50px;
+  padding:10px;
+  height:40px;
+  color:var(--white-color);
+  box-shadow: var(--white-color)  -8px 8px 15px ;
+  cursor: pointer;
+  font-family:  "HelveticaNeue-Light";
+  font-size: 100%;
+}
+
+.download:hover{
+  background-color:var(--white-color);
+  color:var(--black-color);
+}
+
+video{
+  max-width:100%;
+  width:420px;
+  max-height:340px;
+  border-radius:10px;
+  margin-left:20px;
+  margin-top: 50px;
+
+}
+
 /*thanks page-------------*/
 /*styling the container of h1, h2 and img*/
 .grazie{
+
   display:flex;
-  padding:50px;
+  flex-direction: column;
+  align-items: center;
 }
 /*h1*/
 .thanks{
@@ -892,10 +945,9 @@ video{
   font-family: 'freight-text-pro';
   font-weight: 200;
   font-size: 600%;
-  margin:500px 0px 0px 200px;
-  position:absolute;
+  align-items: center;
 }
-/*gif treat as img*/
+/*gif treat as img
 .clap{
   max-width:100%;
   width:300px;
@@ -903,16 +955,14 @@ video{
   left:550px;
   position:absolute;
 
-}
+}*/
 /*span that display the name js*/
 #thank{
   color:var(--font-color);
   font-family: 'freight-text-pro';
   font-weight: 600;
   font-size: 600%;
-  top:800px;
-  left:350px;
-  position:absolute;
+  align-items: center;
 }
 /*h2*/
 .grazie2{
@@ -920,12 +970,10 @@ video{
   font-family: 'freight-text-pro';
   font-weight: 400;
   font-size: 400%;
-  top:950px;
-  left:250px;
-  position:absolute;
+  align-items: center;
 }
 
-/*----restyling thanks  page for desktop*/
+/*----restyling thanks  page for desktop
 @media (min-width:1025px){
 
   .thanks{
@@ -933,9 +981,10 @@ video{
     font-family: 'freight-text-pro';
     font-weight: 200;
     font-size: 600%;
-    margin:350px 0px 0px 450px;
+    margin:250px 0px 0px 650px;
     position:absolute;
   }
+
 
   .clap{
     max-width:100%;
@@ -970,8 +1019,9 @@ video{
 
 /*------------------------------------footer------------------*/
 /*using flexbox ofr footer align item center flex*/
- footer{
+.foot{
    margin: 70px 0 20px 0;
+   padding:0;
    border-top:4px solid var(--black-color);
    width:100%;
    height:auto;
@@ -1009,6 +1059,10 @@ opacity: 0.5;
  }
 }
 
+#copy{
+  text-align: center;
+  font-size: 100%;
+}
 /*styling the cursor only for desktop*/
 @media (min-width:1025px){
 .cursor{
@@ -1024,19 +1078,22 @@ opacity: 0.5;
   position: absolute;
   /*fixing the style as the cursor is not on the center when the mouse move*/
   transform: translate(-50%,-50%);
+  transform-origin: 100% 100%;
   /*goes always on top*/
   z-index:5;
+  backdrop-filter: invert(100%);
 }
 
 /*see js for this class list on mouse over the link the background became trasparent so user can see what to click and the border scale up*/
 .grow{
-  transform:scale(2);
-  background:none;
+  border:3px solid rgba(235, 64, 52);
+  background-color:  rgba(255, 255, 255,0.2);
 }
 
 /*invert filter when mouse hover the images so it became black or white*/
 .filter{
-  filter: invert(100%);
+ border:3px solid var(--white-color);
+ background-color:  rgba(255, 255, 255,0.2);
 }
 }
 /*-----------end css----*/

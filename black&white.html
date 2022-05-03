@@ -64,7 +64,7 @@
 
    <div id="logo">
      <a class="home"href="index.html">
-     <img class="logo"src="icon/logo.png" alt="logo of the website Ro" height="100">
+     <img class="logo"src="icon/logo.png" alt="logo of the website Ro">
      </a>
    </div>
 
@@ -98,6 +98,19 @@
             <img class="gall"src="img/6g.jpg" alt="Hug,Bristol-England"/>
                <p class="text">Bristol-England</p>
           </div>
+          <div class="wrap">
+            <img class="gall"src="img/7g.jpg" alt="Portrait of woman,Rome-Italy"/>
+               <p class="text">Rome-Italy</p>
+          </div>
+          <div class="wrap">
+            <img class="gall"src="img/8g.jpg" alt="Fisherman repairs the nets,Isla de Culatra-Portugal"/>
+               <p class="text">Isla de Culatra-Portugal</p>
+          </div>
+          <div class="wrap">
+            <img class="gall"src="img/9g.jpg" alt="Tower Bridge,London-England"/>
+               <p class="text">London-England</p>
+          </div>
+
      </div>
      <div class="modal">
        <span class="close">&times</span>
@@ -109,17 +122,18 @@
      </div>
    </div>
 
-<!--creating link for external website-->
-  <footer id="foot">
-      <div class="insta">
-        <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
-      </div>
-
-      <div class="yt">
-        <a href="https://www.youtube.com/channel/UCaKD4g8lBkvBKTnPiHrlIeQ"><img src="icon/yt.png" alt="youtube"></a>
-      </div>
-
-  </footer>
+   <!--creating link for external website-->
+     <footer id="f">
+       <div class="foot">
+         <div class="insta">
+           <a href="https://www.instagram.com/_roberta_chioccia_/"><img src="icon/insta.png" alt="instagram icon"></a>
+         </div>
+         <div class="yt">
+           <a href="https://www.youtube.com/channel/UCaKD4g8lBkvBKTnPiHrlIeQ"><img src="icon/yt.png" alt="youtube"></a>
+         </div>
+       </div>
+         <p id="copy"> <img src="icon/copyright.png" alt="copyright symbol">2022, RCA. All copyright are reserved</p>
+     </footer>
 
 
 
@@ -137,50 +151,80 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
       navbar.classList.toggle("change");
     });
 
-        // function to set a given theme/color-scheme
 
-          function setTheme(themeName) {
-          localStorage.setItem('theme', themeName);
-          document.documentElement.className = themeName;
-          }
+            // function to set a given theme/color-scheme on the main pages
+            //first declare that the function store the item inside the local storage by setting the key is theme and the value to themeName
+           // than get the element by class name
+              function setTheme(themeName) {
+              localStorage.setItem('theme', themeName);
+              document.documentElement.className = themeName;
+              }
+           //followed that get the item means that the browser is reading the data so inside a function --->
+           // if the key theme of the set theme is equal to dark than display light else display dark--->
 
-       // function to toggle between light and dark theme
-          function toggleTheme() {
-          if (localStorage.getItem('theme') === 'theme-dark') {
-              setTheme('theme-light');
-             } else {
-              setTheme('theme-dark');
-             }
-            };
+              function toggleTheme() {
+              if (localStorage.getItem('theme') === 'theme-dark') {
+                  setTheme('theme-light');
+                 } else {
+                  setTheme('theme-dark');
+                 }
+                }
 
-        //this function is running when the toggleTheme() is also running so when the theme background is changing
-        //also the gradient var is changing in css therefore the logo would have been unreadible as the gradient blackground
-        //and the logo were both black. On click, then the function will run if the image source  displaylogo is === match the source display logow else return the logo
-          function changeLogo() {
-          let displayLogo = document.querySelector(".logo")
-          if(displayLogo.src.match('icon/logo.png')){
-             displayLogo.src = 'icon/logow.png'
-             } else {
-             displayLogo.src = 'icon/logo.png'
-             }
-            };
+                // Immediately invoked function to set the theme on initial load
+               (function () {
+                   if (localStorage.getItem('theme') === 'theme-dark') {
+                       setTheme('theme-dark');
+                   } else {
+                       setTheme('theme-light');
+                   }
+               })();
+
+               //this function is running when the toggleTheme() is also running so when the theme background is changing
+               //also the gradient var is changing in css therefore the logo would have been unreadible as the gradient blackground
+               //and the logo were both black. On click, then the function will run if the image source  displaylogo is === match the source display logow else return the logo
+               //syntax token https://iqcode.com/code/javascript/javascript-change-multiple-images-onclick
+
+               function changeLogo() {
+               let displayLogo = document.querySelector(".logo")
+               if(displayLogo.src.match('icon/logo.png')){
+                 displayLogo.src = 'icon/logow.png'
+                 } else {
+                 displayLogo.src = 'icon/logo.png'
+                 }
+                };
+
+                function setTheme(themeName) {
+                localStorage.setItem('theme', themeName);
+                document.documentElement.className = themeName;
+                }
+                //followed that get the item means that the browser is reading the data so inside a function --->
+                // if the key theme of the set theme is equal to dark than display light else display dark--->
+
+                function toggleTheme2() {
+                if (localStorage.getItem('theme') === 'theme-dark') {
+                    setTheme('theme-light');
+                   } else {
+                    setTheme('theme-dark');
+                   }
+                  }
+
+                  // Immediately invoked function to set the theme on initial load
+                 (function () {
+                     if (localStorage.getItem('theme') === 'theme-dark') {
+                         setTheme('theme-dark');
+                     } else {
+                         setTheme('theme-light');
+                     }
+                 })();
 
 
-       //second toggle for the nav bar menu.
-          function toggleTheme2() {
-          if (localStorage.getItem('theme') === 'theme-dark') {
-             setTheme('theme-light');
-             } else {
-             setTheme('theme-dark');
-             }
-           };
 
-      //changing logo when user click on toggle the gradient of the nav bar was black as the logo so to change it we run a function.
-           function changeLogo2() {
+              //changing logo when user click on toggle the gradient of the nav bar was black as the logo so to change it we run a function.
+              function changeLogo2() {
              //we take the element logo and assign a var
-           let displayLogo = document.querySelector(".logo")
-           //if the var match with the logo than run this code
-           if(displayLogo.src.match('icon/logo.png')){
+              let displayLogo = document.querySelector(".logo")
+              //if the var match with the logo than run this code
+              if(displayLogo.src.match('icon/logo.png')){
              //display logow
               displayLogo.src = 'icon/logow.png'
               } else {
@@ -266,12 +310,12 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
 
 
       // for all images when mouse over on top add a filter styled in css when leave remove the filter
-     allImg.forEach((image) => {
+       allImg.forEach((image) => {
        image.addEventListener("mouseover",()=>{
-         mouseCursor.classList.add('filter');
+       mouseCursor.classList.add('filter');
        });
        image.addEventListener("mouseleave",()=>{
-         mouseCursor.classList.remove('filter');
+       mouseCursor.classList.remove('filter');
      });
     });
 
@@ -294,7 +338,7 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
         let undOp = document.querySelector('.under_score');
         let imgOp = document.querySelector('.img-container');
         let swiOP = document.querySelector('.switch');
-        let foot  = document.getElementById('foot');
+        let foot  = document.getElementById('f');
 
         loOp.classList.toggle('opacity');
         conOp.classList.toggle('opacity');
