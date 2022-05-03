@@ -110,13 +110,16 @@
 
     <!-- crearting a button with an anchor element to download when click the button js will run cameraSound function basically its like an audio alert but with the sound of camera click supposed that would be nicer -->
     <div class="download_button">
+      <div class="audio">
+       <audio id="audio2" style="display:none">
+         <source src="aud/camera.mp3" type="audio/mpeg">
+         <source src="aud/camera.ogg" type="audio/ogg">
+         <source src="aud/camera.wav" type="audio/wav">
+        </audio>
+      </div>
       <!--download href === img.cv jpg -->
       <a href="img/Roberta_Chioccia_CV.jpg" download="Roberta_Chioccia_CV.jpg"><button class="download" onclick="cameraSound()"><i class="fa fa-download"></i> Download my C.V.</button></a>
-      <audio id="audio2" style="display:none">
-        <source src="aud/camera.mp3" type="audio/mpeg">
-        <source src="aud/camera.ogg" type="audio/ogg">
-        <source src="aud/camera.wav" type="audio/wav">
-      </audio><!--inside the anchor element thereis a button with an icon that display the download-->
+    <!--inside the anchor element thereis a button with an icon that display the download-->
     </div>
   </div>
  </div>
@@ -280,6 +283,12 @@ plus  calling the checkbox element of the switch bottom and assign a variable*/
        doOp.classList.toggle('opacity');
        foot.classList.toggle('opacity');
      };
+
+     function cameraSound(){
+       let audio = document.getElementById('audio2');
+       audio.play();
+     };
+
     </script>
 
   </body>
